@@ -1,4 +1,84 @@
 /*notes
-for lists w/o bullets list-style-type: none;
-navbar should be over thai pic but slightly opaque
+-
 */
+
+/*body*/
+
+body {
+  width: 90%;
+  margin: auto;
+}
+
+/*header*/
+
+header {
+  background-image: url("./images/background1.jpg");
+  width: 100%;
+  height: 400px;
+  margin: auto;
+  border-radius: 5px;
+  border: black solid 2px;
+  background-repeat: no-repeat;
+}
+
+header img {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  /*box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.75);*/
+  border: white 2px solid;
+  margin: auto;
+}
+
+/*navbar*/
+
+nav li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 2px 50px;
+  text-align: center;
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/*about me*/
+
+section {
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: auto;
+  width: 60%;
+  float: left;
+}
+
+/*blog summaries side bar*/
+
+#recent-posts {
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: auto;
+  width: 20%;
+  float: left;
+}
+
+/*links side bar*/
+
+#links {
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: auto;
+  width: 20%;
+  float: left;
+}
+
+/*footer*/
+
+footer {
+  border: 2px solid black;
+  border-radius: 25px;
+  margin: auto;
+  width: 80%;
+  clear: both;
+}
