@@ -7,78 +7,143 @@
 body {
   width: 90%;
   margin: auto;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 /*header*/
 
 header {
   background-image: url("./images/background1.jpg");
-  width: 100%;
-  height: 400px;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 10px;
   border: black solid 2px;
-  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
 }
 
 header img {
-  height: 150px;
-  width: 150px;
+  height: 200px;
   border-radius: 100px;
-  /*box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.75);*/
-  border: white 2px solid;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25);
+  border: white 3px solid;
+}
+
+#profile {
   margin: auto;
+  width: 200px;
+  padding: 75px;
 }
 
 /*navbar*/
 
 nav li {
   list-style-type: none;
-  display: inline-block;
-  margin: 2px 50px;
+  display: inline;
+}
+
+nav ul {
+  width: 100%;
+  margin: auto;
+}
+
+header nav {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav li a {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/*all h3s*/
+
+h3 {
   text-align: center;
 }
 
-nav {
-  background-color: rgba(0, 0, 0, 0.75);
+/*all aside lists*/
+
+aside li {
+  list-style-type: none;
 }
 
 /*about me*/
 
 section {
   border: 2px solid black;
-  border-radius: 25px;
+  border-radius: 10px;
   margin: auto;
-  width: 60%;
+  width: 68%;
   float: left;
-}
-
-/*blog summaries side bar*/
-
-#recent-posts {
-  border: 2px solid black;
-  border-radius: 25px;
-  margin: auto;
-  width: 20%;
-  float: left;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 /*links side bar*/
 
 #links {
   border: 2px solid black;
-  border-radius: 25px;
+  border-radius: 10px;
   margin: auto;
-  width: 20%;
-  float: left;
+  width: 28%;
+  float: right;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 5px;
+}
+
+/*blog summaries side bar*/
+
+#recent-posts {
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: auto;
+  width: 28%;
+  float: right;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 /*footer*/
 
 footer {
   border: 2px solid black;
-  border-radius: 25px;
+  border-radius: 10px;
   margin: auto;
-  width: 80%;
+  width: 100%;
   clear: both;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+/*all links*/
+
+a {
+  text-decoration: none;
+  background: gray;
+  border: solid 1px black;
+  padding: 1px 15px;
+  margin: 2px 2px 2px 2px;
+  border-radius: 5px;
+}
+
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: blue;
+}
+
+a:hover {
+  color: navy;
+}
+
+a:active {
+  color: black;
 }
