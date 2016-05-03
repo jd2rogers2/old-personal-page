@@ -1,5 +1,9 @@
 /*notes
--
+-need to center navbar links
+-need to make navbar background go above links
+-need to add cool background to entire page?
+-links aside and recent posts aside don't have same left border
+-links aside links need to be spaced out 
 */
 
 /*body*/
@@ -81,6 +85,10 @@ section {
   float: left;
   margin-top: 2px;
   margin-bottom: 2px;
+}
+
+section p {
+  margin: 20px 30px;
 }
 
 /*links side bar*/
