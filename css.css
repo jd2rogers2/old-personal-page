@@ -1,6 +1,5 @@
 /*notes
 -need to center navbar links
-
 */
 
 /*body*/ 
@@ -21,6 +20,7 @@ body {
 
 header {
   background-image: url("./images/background.jpg");
+  background-position: center;
   margin: auto;
   border-radius: 10px;
   border: #E0E0E0 solid 1px;
@@ -70,6 +70,7 @@ header nav {
 
 nav a {
   text-decoration: none;
+  font-size: 1.25em;
 }
 
 nav a:link {
@@ -88,26 +89,6 @@ h3 {
   text-align: center;
 }
 
-/*all aside lists*/
-
-aside li {
-  list-style-type: none;
-}
-
-aside a {
-  text-decoration: none;
-}
-
-aside a:link {
-  color: rgba(0, 0, 0, 0.75);
-  text-decoration: none;
-}
-
-aside a:visited {
-  color: rgba(0, 0, 0, 0.75);
-  text-decoration: none;
-}
-
 /*about me*/
 
 section {
@@ -122,6 +103,48 @@ section {
 
 section p {
   margin: 20px 30px;
+}
+
+section img {
+  margin: 0px 30px 0px 30px;
+  display: inline-block;
+  width: 80%;
+}
+
+sub {
+  float: left;
+  padding-left: 150px;
+  margin-bottom: 20px;
+  color: #E0E0E0;
+}
+/*all aside lists*/
+
+aside li {
+  list-style-type: none;
+}
+
+aside a {
+  text-decoration: none;
+}
+
+aside a:link {
+  color: rgba(0, 159, 204, 0.75);
+  text-decoration: none;
+}
+
+aside a:visited {
+  color: rgba(0, 159, 204, 0.75);
+  text-decoration: none;
+}
+
+aside li a {
+  padding: 20px;
+}
+
+#links img {
+  height: 50px;
+  width: 50px;
+  float: left;
 }
 
 /*links side bar*/
@@ -167,7 +190,7 @@ footer {
 
 /*media queries*/
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 850px) {
   
   section {
     float: left;
