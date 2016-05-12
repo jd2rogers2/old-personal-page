@@ -1,0 +1,9 @@
+body {
+  width: 90%;
+  max-width: 1125px;
+  margin: auto;
+}
+
+aside {
+  width: 33%;
+}
