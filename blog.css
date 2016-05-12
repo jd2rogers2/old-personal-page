@@ -11,8 +11,7 @@ aside {
   border: 1px solid #E0E0E0;
   border-radius: 10px;
   margin: 4px 0px;
-  float: left;
-  clear: both;
+  min-width: 350px;
 }
 
 #background {
@@ -20,20 +19,39 @@ aside {
   background-position: center bottom;
   background-repeat: no-repeat;
   max-height: 360px;
+  min-width: 350px;
 }
 
-aside img {
+#background img {
   width: 200px;
   height: 200px;
-  margin: auto 20%;
   border-radius: 200px;
   border: 1px solid #E0E0E0;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25);
   display: inline-block;
+  margin: 75px;
 }
 
-#recent-posts li {
+#links img {
+  height: 50px;
+  width: 50px;
+}
+
+#links {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 33%;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: block;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+li {
   list-style-type: none;
+  display: inline;
 }
 
 #recent-posts h3 {
@@ -46,7 +64,8 @@ nav {
   text-align: center;
   display: block;
   background-color: rgba(0, 0, 0, 0.5);
-  background-position: center bottom;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 nav li {
@@ -55,11 +74,9 @@ nav li {
 }
 
 section {
-  float: right;
   width: 60%;
   border: 1px solid #E0E0E0;
   border-radius: 10px;
-  clear: both;
   margin: 4px 0px;
 }
 
@@ -69,5 +86,4 @@ footer {
   border-radius: 10px;
   border: 1px solid #E0E0E0;
   text-align: center;
-  clear: both;
 }
