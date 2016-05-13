@@ -1,89 +1,215 @@
+/*body*/ 
+
 body {
-  width: 90%;
   max-width: 1125px;
   margin: auto;
 }
 
-/*asides*/
-
-aside {
-  width: 33%;
-  border: 1px solid #E0E0E0;
-  border-radius: 10px;
-  margin: 4px 0px;
-  min-width: 350px;
-}
-
-#background {
-  background: url("./images/background.jpg");
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  max-height: 360px;
-  min-width: 350px;
-}
-
-#background img {
-  width: 200px;
-  height: 200px;
-  border-radius: 200px;
-  border: 1px solid #E0E0E0;
-  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25);
-  display: inline-block;
-  margin: 75px;
-}
-
-#links img {
-  height: 50px;
-  width: 50px;
-}
-
-#links {
-  border: #E0E0E0 solid 1px;
-  border-radius: 10px;
+#body {
+  width: 90%;
   margin: auto;
-  width: 33%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+/*header*/
+
+header {
+  background-image: url("./images/background.jpg");
+  background-position: center bottom;
+  margin: auto;
+  border-radius: 10px;
+  border: #E0E0E0 solid 1px;
+  background-size: cover;
   margin-top: 2px;
   margin-bottom: 2px;
+  text-align: center;
+  height: 260px;
+}
+
+header img {
+  border-radius: 100px;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25);
+  border: #E0E0E0 1px solid;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  display: inline-block;
+}
+
+#profile {
+  padding: 35px 0 46px 0;
   display: block;
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-li {
-  list-style-type: none;
-  display: inline;
-}
-
-#recent-posts h3 {
-  text-align: center;
 }
 
 /*navbar*/
 
-nav {
-  text-align: center;
+#navbar {
   display: block;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 nav li {
   list-style-type: none;
   display: inline-block;
+  padding: 0px 50px;
 }
 
+nav ul {
+  width: 100%;
+  margin: auto;
+}
+
+header nav {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.25em;
+}
+
+nav a:link {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+}
+
+/*all h3s*/
+
+h3 {
+  text-align: center;
+}
+
+/*about me*/
+
 section {
-  width: 60%;
-  border: 1px solid #E0E0E0;
+  border: #E0E0E0 solid 1px;
   border-radius: 10px;
-  margin: 4px 0px;
+  margin: auto;
+  width: 66%;
+  float: right;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+section p {
+  margin: 20px 30px;
+  clear: left;
+}
+
+section img {
+  margin: 0px 30px 0px 30px;
+  display: inline-block;
+  width: 80%;
+}
+
+sub {
+  float: left;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  color: #C0C0C0;
+}
+/*all aside lists*/
+
+aside li {
+  list-style-type: none;
+}
+
+aside a {
+  text-decoration: none;
+}
+
+aside a:link {
+  color: rgba(0, 159, 204, 0.75);
+  text-decoration: none;
+}
+
+aside a:visited {
+  color: rgba(0, 159, 204, 0.75);
+  text-decoration: none;
+}
+
+aside li a {
+  padding: 20px;
+}
+
+#links img {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+
+/*links side bar*/
+
+#links {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  float: left;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/*blog summaries side bar*/
+
+#recent-posts {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  float: left;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#recent-posts li {
+  margin: 0px 30px 0 0;
+  clear: left;
 }
 
 /*footer*/
 
 footer {
+  border: #E0E0E0 solid 1px;
   border-radius: 10px;
-  border: 1px solid #E0E0E0;
+  margin: auto;
+  width: 100%;
+  clear: both;
+  margin-top: 2px;
+  margin-bottom: 2px;
   text-align: center;
+}
+
+/*media queries*/
+
+@media only screen and (max-width: 850px) {
+  
+  section {
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+
+  #links {
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+
+  #recent-posts {
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+
+  nav li {
+    padding: 0px 20px;
+  }
 }
