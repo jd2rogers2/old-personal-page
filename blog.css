@@ -109,12 +109,17 @@ section img {
   width: 80%;
 }
 
-sub {
-  float: left;
+section sub {
   margin-left: 30px;
-  margin-bottom: 20px;
-  color: #C0C0C0;
+  margin-bottom: 10px;
 }
+
+sub {
+  color: #C0C0C0;
+  float: left;
+  padding: 10px 0;
+}
+
 /*all aside lists*/
 
 aside li {
@@ -125,6 +130,10 @@ aside a {
   text-decoration: none;
 }
 
+aside li img {
+  margin: 0px 7px 20px 0px;
+}
+
 aside a:link {
   color: rgba(0, 159, 204, 0.75);
   text-decoration: none;
@@ -133,10 +142,6 @@ aside a:link {
 aside a:visited {
   color: rgba(0, 159, 204, 0.75);
   text-decoration: none;
-}
-
-aside li a {
-  padding: 20px;
 }
 
 #links img {

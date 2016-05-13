@@ -100,6 +100,7 @@ section {
 
 section p {
   margin: 20px 30px;
+  clear: left;
 }
 
 section img {
@@ -108,12 +109,17 @@ section img {
   width: 80%;
 }
 
-sub {
-  float: left;
-  padding-left: 150px;
-  margin-bottom: 20px;
-  color: #C0C0C0;
+section sub {
+  margin-left: 30px;
+  margin-bottom: 10px;
 }
+
+sub {
+  color: #C0C0C0;
+  float: left;
+  padding: 10px 0;
+}
+
 /*all aside lists*/
 
 aside li {
@@ -134,8 +140,8 @@ aside a:visited {
   text-decoration: none;
 }
 
-aside li a {
-  padding: 20px;
+aside li img {
+  margin: 0px 7px 20px 0px;
 }
 
 #links img {
