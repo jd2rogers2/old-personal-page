@@ -204,7 +204,7 @@ footer {
   section {
     float: left;
     width: 100%;
-    clear: both;
+    clear: right;
   }
 
   #links {
