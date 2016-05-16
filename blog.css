@@ -100,7 +100,6 @@ section {
 
 section p {
   margin: 20px 30px;
-  clear: left;
 }
 
 section img {
@@ -117,10 +116,14 @@ section sub {
 sub {
   color: #C0C0C0;
   float: left;
-  padding: 10px 0;
+  padding: 4px 0 10px 0;
 }
 
 /*all aside lists*/
+
+aside sub {
+  margin-bottom: 10px;
+}
 
 aside li {
   list-style-type: none;
@@ -160,6 +163,7 @@ aside a:visited {
   float: left;
   margin-top: 2px;
   margin-bottom: 2px;
+  clear: left;
 }
 
 /*blog summaries side bar*/
@@ -172,6 +176,7 @@ aside a:visited {
   float: left;
   margin-top: 2px;
   margin-bottom: 2px;
+  clear: left;
 }
 
 #recent-posts li {
@@ -205,13 +210,11 @@ footer {
   #links {
     float: left;
     width: 100%;
-    clear: both;
   }
 
   #recent-posts {
     float: left;
     width: 100%;
-    clear: both;
   }
 
   nav li {
