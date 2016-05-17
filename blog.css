@@ -157,6 +157,21 @@ aside a:visited {
   clear: left;
 }
 
+/*twitter side bar*/
+
+#twitter {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  float: left;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  padding-right: 2px;
+  padding-top: 3px;
+  clear: left;
+}
+
 /*sections*/
 
 section {
@@ -213,8 +228,11 @@ footer {
   }
 
   #recent-posts {
-    float: left;
-    width: 100%;
+    display: none;
+  }
+
+  #twitter {
+    display: none;
   }
 
   nav li {

@@ -1,3 +1,15 @@
+/*universals*/ 
+
+sub {
+  color: #C0C0C0;
+  float: left;
+  padding: 4px 0 10px 0;
+}
+
+h3 {
+  text-align: center;
+}
+
 /*body*/ 
 
 body {
@@ -80,12 +92,6 @@ nav a:visited {
   text-decoration: none;
 }
 
-/*all h3s*/
-
-h3 {
-  text-align: center;
-}
-
 /*about me*/
 
 section {
@@ -114,16 +120,14 @@ section sub {
   margin-bottom: 10px;
 }
 
-sub {
-  color: #C0C0C0;
-  float: left;
-  padding: 10px 0;
-}
-
 /*all aside lists*/
 
 aside li {
   list-style-type: none;
+}
+
+aside sub {
+  margin-bottom: 10px;
 }
 
 aside a {
@@ -176,7 +180,23 @@ aside li img {
 
 #recent-posts li {
   margin: 0px 30px 0 0;
+  clear: both;
 }
+
+/*twitter aside*/
+
+#twitter {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  float: right;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  padding-right: 2px;
+  padding-top: 3px;
+}
+
 
 /*footer*/
 
@@ -208,6 +228,12 @@ footer {
   }
 
   #recent-posts {
+    float: left;
+    width: 100%;
+    clear: both;
+  }
+
+  #twitter {
     float: left;
     width: 100%;
     clear: both;
