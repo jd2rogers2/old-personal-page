@@ -235,9 +235,18 @@ section sub {
   font-size: .85em;
 }
 
-#sources {
+.sources_title {
   text-decoration: underline;
   list-style-type: none;
+}
+
+.sources {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+section li {
+  padding: 0px 30px 0px 0px;
 }
 
 /*footer*/
@@ -255,7 +264,7 @@ footer {
 
 /*media queries*/
 
-@media only screen and (max-width: 850px) {
+@media handheld, screen and (max-width: 850px) {
   
   section {
     float: left;
