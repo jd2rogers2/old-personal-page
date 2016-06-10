@@ -45,7 +45,99 @@
     </aside>
 
     <section>
+      <h3>Ruby Filetree Setup</h3>
+
+      <p>As I started to learn scraping, I actually found one of the hardest things to be the project set up. Requiring different things in different files, shell scripts, shebang statements, and all the other files that support your code but you don't actually learn that much about in a class.</p>
+
+      <p>So I thought I would build a list of everything that goes in your root directory for a ruby project. I hope you like it.</p>
+
+      <p>A quick note for those who have a similar skill level as I do now: you may be wondering about shell scripts and requiring gems/files, I have listed some additional links at the end of this blog for you.</p>
+
+      <ul>
+        <li class="indent_0">root directory - holds all files and folders (folders end in a backslash below)</li>
+          <li class="indent_1">bin/ - this folder generally only holds executable files</li>
+            <li class="indent_2">runner - sometimes also named after the project</li>
+              <li class="indent_3">this is where you actually call the classes/methods to run your program</li>
+              <li class="indent_3">make sure to include require “environment”</li>
+            <li class="indent_2">console - this file is used to peak inside your program, along with test variables and such, using IRB</li>
+              <li class="indent_3">at the top make sure to have a shebang statement that will load your program in ruby, usually looks something like #!/usr/bin/env ruby</li>
+              <li class="indent_3">should require bundler/setup, IRB, and the file where your ruby code is. at the end call IRB.start</li>
+            <li class="indent_2">setup - this file houses code that define settings that your program will abide by</li>
+              <li class="indent_3">so if it is a cli program we would start with #!/bin/bash</li>
+              <li class="indent_3">other commonly included things are set -euo pipefail and IFS=$'\n\t'</li>
+              <li class="indent_3">more on these below in resources but the first specifies error settings, and the second, line break settings (IFS stands for internal field separator)</li>
+              <li class="indent_3">another best practice is to include bundle install in this file</li>
+          <li class="indent_1">config/ - conventionally only has your environment file</li>
+            <li class="indent_2">environment.rb</li>
+              <li class="indent_3">here is where you require all gems and files needed for the runner, this way you can just require environment in your runner. separation of duties</li>
+              <li class="indent_3">should require lib and all necessary gems</li>
+          <li class="indent_1">lib/ - basically everything internal goes here: modules, classes, and methods</li>
+            <li class="indent_2">example.rb</li>
+          <li class="indent_1">spec/ - holds all tests</li>
+            <li class="indent_2">example_test.rb</li>
+          <li class="indent_1">data/ - houses anything else needed for the project i.e. media</li>
+          <li class="indent_1">gemfile - here is where your project actually loads all necessary gems, so list all of them in the gem "name" format</li>
+          <li class="indent_1">gemfile.lock - when you bundle gem and rspec init from the command line, before starting any work on your project, this and the gemfile will be added automatically. this file is locked</li>
+          <li class="indent_1">readme.md - an explanation of what your program is used for and how to use it</li>
+          <li class="indent_1">license.md - copyright mumbo jumbo</li>
+            <li class="indent_2">it is conventional to borrow a stock license provided by github</li>
+          <li class="indent_1">rakefile - think of this as the runner file for your tests</li>
+          <li class="indent_1">contributing.md - info on editing open source software, such as format and test fixes</li>
+          <li class="indent_1">.gitignore - tells git which files to ignore during commits, github has samples you can borrow</li>
+          <li class="indent_1">.rspec</li>
+          <li class="indent_1">root.gemspec</li>
+      </ul>
+
+      <ul>
+      <li id="sources">my sources</li>
+      <li>instructors at The Flatiron School</li>
+      <li>http://learnrubythehardway.org/book/ex46.html</li>
+      <li>https://www.ruby-forum.com/topic/213637</li>
+      <li>https://github.com/blog/1184-contributing-guidelines</li>
+      <li>http://guides.rubyonrails.org/initialization.html</li>
+      <li>http://guides.rubyonrails.org/command_line.html</li>
+      </br>
+      <li id="sources">additional resources</li>
+      <li>http://stackoverflow.com/questions/9549450/how-to-setup-a-basic-ruby-project</li>
+      <li>http://howistart.org/posts/ruby/1</li>
+      <li>http://bundler.io/v1.11/bundler_setup.html</li>
+      <li>https://sipb.mit.edu/doc/safe-shell/</li>
+      <li>https://quickleft.com/blog/engineering-lunch-series-step-by-step-guide-to-building-your-first-ruby-gem/</li>
+      <li>http://stackoverflow.com/questions/4128235/what-is-the-exact-meaning-of-ifs-n</li>
+      <li>http://stackoverflow.com/questions/13872048/bash-script-what-does-bin-bash-mean</li>
+      </ul>
+
+      <sub>posted 10 June 2016</sub>
+
+    </section>
+
+    <aside id="recent-posts">
+      <h3>Recent posts</h3>
+        <ul>
+          <li><a href="#">Ruby Filetree Setup</a>
+          </li>
+          <li>Honestly, for me, as I started to learn scraping, the most confusing thing was the file set up. </li>
+            <sub>posted 10 June 2016</sub>
+          <li><a href="#">My Boss is a Jerk - pt.1</a>
+          </li>
+          <li>He’s never happy. It’s like he’s watching over my shoulder and knows my exact productivity and precisely how much time I've spent in the office.</li>
+            <sub>posted 16 May 2016</sub>
+          <li><a href="#">My Boss is a Jerk - series intro</a>
+          </li>
+          <li>Welcome to the ‘My Boss is a Jerk’ series. I will be chronicling my exploits of self employment and working from home.</li>
+            <sub>posted 16 May 2016</sub>
+        </ul>
+    </aside>
+
+    <aside id="twitter">
+      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </aside>
+
+    <section>
       <h3>My Boss is a Jerk - pt.1</h3>
+
+      <p class="disclosure">Disclosure, please read My Boss is a Jerk - series intro first.</p>
 
       <p>He’s never happy. It’s like he’s watching over my shoulder and knows my exact productivity and precisely how much time I've spent in the office.</p>
 
@@ -56,24 +148,6 @@
       <sub>posted 16 May 2016</sub>
 
     </section>
-
-    <aside id="recent-posts">
-      <h3>Recent posts</h3>
-        <ul>
-          <li><a href="#">My Boss is a Jerk - pt.1</a>
-          </li>
-          <li>He’s never happy. It’s like he’s watching over my shoulder and knows my exact productivity and precisely how much time I've spent in the office.</li>
-            <sub>posted 16 May 2016</sub>
-          <li><a href="#">My Boss is a Jerk - series intro</a>
-          </li>
-          <li>Welcome to the ‘My Boss is a Jerk’ series. I will be chronicling my exploits of self employment and working from home.</li>
-            <sub>posted 16 May 2016</sub>
-          <li><a href="#">Why did I decide to learn software development?</a>
-          </li>
-          <li>In short... because I wasn’t being challenged at my last position, so I decided to start figuring out what I wanted to do.</li>
-            <sub>posted 12 May 2016</sub>
-        </ul>
-    </aside>
 
     <section>
       <h3>My Boss is a Jerk - series intro</h3>
@@ -87,11 +161,6 @@
       <sub>posted 16 May 2016</sub>
 
     </section>
-    
-    <aside id="twitter">
-      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </aside>
 
     <section>
       <h3>Why did I decide to learn software development?</h3>
