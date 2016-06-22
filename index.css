@@ -1,4 +1,4 @@
-/*universals*/ 
+/*universals*/
 
 sub {
   color: #C0C0C0;
@@ -92,21 +92,138 @@ nav a:visited {
   text-decoration: none;
 }
 
-/*about me*/
+/*all aside lists*/
+
+aside sub {
+  margin-bottom: 10px;
+}
+
+aside li {
+  list-style-type: none;
+}
+
+aside a {
+  text-decoration: none;
+}
+
+aside li img {
+  margin: 0px 7px 20px 0px;
+}
+
+aside a:link {
+  color: rgba(0, 159, 204, 0.75);
+  text-decoration: none;
+}
+
+aside a:visited {
+  color: rgba(0, 159, 204, 0.75);
+  text-decoration: none;
+}
+
+/*about me side bar*/
+
+#about_me {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  float: left;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  clear: left;
+}
+
+#about_me p {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+/*links side bar*/
+
+#links img {
+  height: 50px;
+  width: 50px;
+  float: left;
+}
+
+#links {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  float: left;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  clear: left;
+}
+
+/*blog summaries side bar*/
+
+#recent-posts {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  float: left;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  clear: left;
+}
+
+#recent-posts li {
+  margin: 0px 30px 0 0;
+  clear: left;
+}
+
+/*twitter side bar*/
+
+#twitter {
+  border: #E0E0E0 solid 1px;
+  border-radius: 10px;
+  margin: auto;
+  width: 30%;
+  float: left;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  padding-right: 2px;
+  padding-top: 3px;
+  clear: left;
+}
+
+/*sections*/
 
 section {
   border: #E0E0E0 solid 1px;
   border-radius: 10px;
   margin: auto;
   width: 66%;
-  float: left;
+  float: right;
   margin-top: 2px;
   margin-bottom: 2px;
 }
 
+section .post_photo {
+  display: block;
+  margin: auto;
+  width: 30%;
+}
+
+section #rotate {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+  padding: 30px;
+}
+
 section p {
   margin: 20px 30px;
-  clear: left;
+}
+
+.disclosure {
+  text-align: center;
+  color: #C0C0C0;
+  font-size: .75em;
+  font-style: italic;
 }
 
 section img {
@@ -120,83 +237,57 @@ section sub {
   margin-bottom: 10px;
 }
 
-/*all aside lists*/
+/*filetree blog post*/
 
-aside li {
+.indent_0 {
+  list-style-type: none;
+  padding-right: 30px;
+}
+
+.indent_1 {
+  list-style-position: inside;
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+.indent_2 {
+  padding-left: 30px;
+  padding-right: 30px;
+  list-style-position: inside;
+  list-style-type: square;
+  font-size: .85em;
+}
+
+.indent_3{
+  padding-left: 50px;
+  padding-right: 30px;
+  list-style-position: inside;
+  list-style-type: circle;
+  font-size: .85em;
+}
+
+.sources_title {
+  text-decoration: underline;
   list-style-type: none;
 }
 
-aside sub {
-  margin-bottom: 10px;
+.sources {
+  list-style-type: none;
+  padding-left: 30px;
 }
 
-aside a {
-  text-decoration: none;
+section li {
+  padding: 0px 30px 0px 0px;
 }
 
-aside a:link {
-  color: rgba(0, 159, 204, 0.75);
-  text-decoration: none;
+/*sql blog post*/
+
+section .select_statement {
+  list-style-type: none;
+  padding-left: 50px;
+  list-style-position: inside;
+  font-size: .85em;
 }
-
-aside a:visited {
-  color: rgba(0, 159, 204, 0.75);
-  text-decoration: none;
-}
-
-aside li img {
-  margin: 0px 7px 20px 0px;
-}
-
-#links img {
-  height: 50px;
-  width: 50px;
-  float: left;
-}
-
-/*links side bar*/
-
-#links {
-  border: #E0E0E0 solid 1px;
-  border-radius: 10px;
-  margin: auto;
-  width: 30%;
-  float: right;
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-
-/*blog summaries side bar*/
-
-#recent-posts {
-  border: #E0E0E0 solid 1px;
-  border-radius: 10px;
-  margin: auto;
-  width: 30%;
-  float: right;
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-
-#recent-posts li {
-  margin: 0px 30px 0 0;
-  clear: both;
-}
-
-/*twitter aside*/
-
-#twitter {
-  border: #E0E0E0 solid 1px;
-  border-radius: 10px;
-  margin: auto;
-  width: 30%;
-  float: right;
-  margin-top: 2px;
-  margin-bottom: 4px;
-  padding-right: 2px;
-  padding-top: 3px;
-}
-
 
 /*footer*/
 
@@ -218,29 +309,23 @@ footer {
   section {
     float: left;
     width: 100%;
-    clear: both;
+    clear: right;
   }
 
   #links {
     float: left;
     width: 100%;
-    clear: both;
   }
 
   #recent-posts {
-    float: left;
-    width: 100%;
-    clear: both;
+    display: none;
   }
 
   #twitter {
-    float: left;
-    width: 100%;
-    clear: both;
+    display: none;
   }
 
   nav li {
     padding: 0px 20px;
   }
 }
-
