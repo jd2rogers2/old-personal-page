@@ -312,6 +312,11 @@ footer {
     clear: right;
   }
 
+  #about_me {
+    float: left;
+    width: 100%;
+  }
+
   #links {
     float: left;
     width: 100%;
