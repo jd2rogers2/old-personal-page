@@ -123,6 +123,10 @@ aside a:visited {
   clear: left;
 }
 
+#about_me sub {
+  padding-left: 30px;
+}
+
 #about_me p {
   margin-left: 30px;
   margin-right: 30px;

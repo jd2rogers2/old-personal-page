@@ -28,12 +28,52 @@
       </nav>
     </header>
 
+    <aside id="recent-posts">
+      <h3>Recent posts</h3>
+        <ul>
+          <li><a href="#">[on your mark] get ‘/set/go’</a>
+          </li>
+          <li>Alright, let me just say one thing, Sinatra is awesome. </li>
+            <sub>posted 13 July 2016</sub>
+          <li><a href="#">Learning sql just takes persistence</a>
+          </li>
+          <li>At first, sql was an easy language to pick up. It was pretty basic, just creating tables, inserting into them, selecting from them, altering them… </li>
+            <sub>posted 22 June 2016</sub>
+          <li><a href="#">Finishing my first gem</a>
+          </li>
+          <li>I literally just finished my first gem and it is a really awesome feeling. I coded a program that can output the weather for any zip code in the US. </li>
+            <sub>posted 13 June 2016</sub>
+        </ul>
+    </aside>
+
+    <section>
+      <h3>[on your mark] get ‘/set/go’</h3>
+
+      <img src="./images/sinatra.jpeg" class="post_photo" alt="sqlite logo">
+
+      <p>Alright, let me just say one thing, Sinatra is awesome. Once you learn Sinatra as a student coder, Ruby and the front end are finally connected and it feels like you can do anything with it.</p>
+
+      <p>Now that we have that out of the way… Working with forms and controllers has such nice flow. As you start with a simple "get ‘/signup’ do” and have a form for creating a username and password, instinctively you know that you need to pass that information back to the controller. How do you do that? With a method=“POST” and let’s say an action=“/profile” in your input tag, then a corresponding “post ‘/profile’ do” in your controller should come easy as the next step. Lastly, how would display said information back to the user, with an instance variable and some erb tags in your view file. You can build more complicated things from there but you’ll always be following that form-controller-view pattern.</p>
+
+      <p>As you dive into the details your flow gets a little choppy though and that’s because, let’s be honest, a params hash in a patch route can be long and ugly. Now, instead of params[:name] you have params[:user][:name] or something and in your form you have name=“user[name]” (or worse, name=“user[list][ ]") instead of name=“name”.</p>
+
+      <p>Keeping something like that straight in your head can be tough so I find the best solution is to not keep it in your head. Open another text editor window and shrink it as small as you’d like and keep a model of your hash in there.</p>
+
+      <p>Creating the model and setting up the names to the input was often the hardest part, but if you stick with it and test as you go, you will end up saving yourself a lot time and flipping back and forth between form and controller.</p>
+
+      <p>So... on your mark, get set, go!</p>
+
+      <sub>posted 13 July 2016</sub>
+    </section>
+
     <aside id="about_me">
       <h3>About me</h3>
 
       <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
 
       <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
+
+      <sub>as of 13 July 2016</sub>
     </aside>
 
     <section>
@@ -77,22 +117,9 @@
       </ul>
     </aside>
 
-    <aside id="recent-posts">
-      <h3>Recent posts</h3>
-        <ul>
-          <li><a href="#">Learning sql just takes persistence</a>
-          </li>
-          <li>At first, sql was an easy language to pick up. It was pretty basic, just creating tables, inserting into them, selecting from them, altering them… </li>
-            <sub>posted 22 June 2016</sub>
-          <li><a href="#">Finishing my first gem</a>
-          </li>
-          <li>I literally just finished my first gem and it is a really awesome feeling. I coded a program that can output the weather for any zip code in the US. </li>
-            <sub>posted 13 June 2016</sub>
-          <li><a href="#">Ruby Gem Filetree Setup</a>
-          </li>
-          <li>As I started to learn scraping, I actually found one of the hardest things to be the project set up. </li>
-            <sub>posted 10 June 2016</sub>
-        </ul>
+    <aside id="twitter">
+      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </aside>
 
     <section>
@@ -108,11 +135,6 @@
 
       <sub>posted 13 June 2016</sub>
     </section>
-
-    <aside id="twitter">
-      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </aside>
 
     <section>
       <h3>Ruby Gem Filetree Setup</h3>
