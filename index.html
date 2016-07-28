@@ -31,6 +31,9 @@
     <aside id="recent-posts">
       <h3>Recent posts</h3>
         <ul>
+          <li><a href="#">Over-writing is not the answer</a>
+          <li>I’ve just finished my first web app and I’m very proud of it as I put a lot of time into it; but I have learned some very important lessons this week, and those are to work smart and plan ahead. </li>
+            <sub>posted 28 July 2016</sub>
           <li><a href="#">[on your mark] get ‘/set/go’</a>
           </li>
           <li>Alright, let me just say one thing, Sinatra is awesome. </li>
@@ -39,11 +42,42 @@
           </li>
           <li>At first, sql was an easy language to pick up. It was pretty basic, just creating tables, inserting into them, selecting from them, altering them… </li>
             <sub>posted 22 June 2016</sub>
-          <li><a href="#">Finishing my first gem</a>
           </li>
-          <li>I literally just finished my first gem and it is a really awesome feeling. I coded a program that can output the weather for any zip code in the US. </li>
-            <sub>posted 13 June 2016</sub>
+
         </ul>
+    </aside>
+
+    <section>
+      <h3>Over-writing is NOT the answer</h3>
+
+      <img src="./images/goalsongoals.png" class="post_photo" alt="sqlite logo">
+
+      <p>I’ve just finished my first web app and I’m very proud of it as I put a lot of time into it; but I have learned some very important lessons this week, and those are to work smart and plan ahead. I literally felt done with the app at least three times but then decided to add another capability. This is not an easy thing in the world of code, my friends. So I say to you, think hard about what you want your app to do and stick to the plan; otherwise you may end up with 10-15 files with 100+ lines of code each, and I don’t know about you but that’s beyond my current mental capacity and code skills.</p>
+
+      <p>Often times over complicating your code can break it or make it incomprehensible. A couple questions I wish I had asked myself:</p>
+
+      <dl>
+        <dt>1. What is the cleanest and smartest way to organize my code before starting? (keep it flexible for future additions)</dt>
+        <dd>- Do this by abstracting i.e. creating lots of helper methods</dd>
+        <dt>2. How would I simply and easily (without sacrificing doing it the right way) add this capability to my current app?</dt>
+        <dd>- Also at this point, you should be re-asking question 1</dd>
+      </dl>
+
+      <p>I hope that you can use these questions ahead of your next project to save you some time and stress. Happy coding.</p>
+
+      <p>Feel free to comment/fork/contribute/etc. via <a href="https://github.com/jd2rogers2/sinatra-cms-app-assessment-v-000"> my github</a></p>
+
+      <sub>posted 28 July 2016</sub>
+    </section>
+
+    <aside id="about_me">
+      <h3>About me</h3>
+
+      <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
+
+      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
+
+      <sub>as of 13 July 2016</sub>
     </aside>
 
     <section>
@@ -66,14 +100,20 @@
       <sub>posted 13 July 2016</sub>
     </section>
 
-    <aside id="about_me">
-      <h3>About me</h3>
+    <aside id="links">
+      <h3>Links</h3>
+      <ul>
+        <li><a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png"></a></li>
+        <li><a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg"></a></li>
+        <li><a href="https://www.linkedin.com/in/jamesrogers3
+        " target="_blank"><img src="./images/linkedin.png"></a></li>
+        <li><a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png"></a></li>
+      </ul>
+    </aside>
 
-      <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
-
-      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
-
-      <sub>as of 13 July 2016</sub>
+    <aside id="twitter">
+      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </aside>
 
     <section>
@@ -105,22 +145,6 @@
 
       <sub>posted 22 June 2016</sub>
     </section>
-
-    <aside id="links">
-      <h3>Links</h3>
-      <ul>
-        <li><a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png"></a></li>
-        <li><a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg"></a></li>
-        <li><a href="https://www.linkedin.com/in/jamesrogers3
-        " target="_blank"><img src="./images/linkedin.png"></a></li>
-        <li><a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png"></a></li>
-      </ul>
-    </aside>
-
-    <aside id="twitter">
-      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </aside>
 
     <section>
       <h3>Finishing my first gem</h3>
