@@ -29,23 +29,36 @@
     </header>
 
     <section>
-      <h3>New to working with APIs</h3>
 
-      <img src="./images/spotify.png" class="post_photo" alt="spotify api logo">
+      <h3>Nested Attributes Make Me Feel RESTless</h3>
 
-      <p>I recently spoke with a lot of other students at the Flatiron School, where I take online classes, regarding an attempt at building our own app. I saw some of the projects that they had been working on and was very impressed. After asking some questions, I found that their coding abilities weren’t too far ahead of my own apart from the knowledge of adding and working with APIs.</p>
+      <img src="./images/rails.png" class="post_photo" alt="ruby on rails logo">
 
-      <p>These APIs were making a standard new app much more interesting, and I’m being told by the students that they simply found this API online and followed directions to incorporate it into their code. Could it be that easy? I only had a vague understanding of what an API was and had no idea how to integrate them into my code. So if you are anything like me, read on.</p>
+      <p>I’m no expert on Rails (or anything really for that matter), but it seems to me, with all the convention that’s built in, that nested attributes would also follow REST conventions in their naming, since they are likely to correspond with a nested resource or an index of  another Model's index.</p>
 
-      <p>Research break...</p>
+      <p>I’ll explain more, in this example we’re creating a new blog post and a new tag as well. So, for instance, instead of tag_attributes for the nomenclature of the hash why not just tags? The way rails is set up now we already have tag_ids as a key in our params hash, and it’s value would be an array of IDs (integers). We also have tag_attributes if we want to make a new Tag instance that is associated with this post. Wouldn’t it by DRYer to have just tags as a key? I think that the tags key could point to an array of IDs just like tag_ids but then create a new instance every time it encounters a hash. It would also automatically sequence to the next ID number for the new tag(s) because it would know the next number in the sequence from the original database call. Below is an example of the tags key in the params hash, with three existing tags, and two new, being associated with our new post.</p>
 
-      <p>I've found that an API is a program (not always separate from the main function) on a server that dishes out information upon request. This is basically a way for your program to work with the data that any user can plainly see on that website but wouldn’t like to copy manually to due quantity i.e. (latitude and longitude from Google maps, or friends on Facebook).</p>
+      <ul>
+        <li class="dent_0" >:params => {</li>
+        <li class="dent_1" >  :tags => [2, 3, 8, {id: 9, name: “silly post"}, {id: 10, name: “serious post"}]</li>
+        <li class="dent_0" >}</li>
+      </ul>
 
-      <p>So it turns out that most APIs do, in fact, have documentation; but I also found that this documentation can be very difficult to follow for a first timer and that it will certainly take practice. You’ll also have to register an account with the developer site for authentication purposes.</p>
+      <p>This would do away with the nasty numerical key that corresponds with a hash of attributes for the new tags (tag_attributes) params key; which are seemingly irrelevant except as placeholders anyway, they are not IDs of the new instances. As in the 1 and 0 below:</p>
 
-      <p>I decided to do some hands-on research with the Spotify API. The code they provide is all NodeJS, I only have very basic javascript knowledge so this took rather long, but once I pasted what and where I was supposed to, we were up and running. I can now build apps that a user could log in with their Spotify account and my app would be able to work with their favorited songs and playlists to hypothetically recommend local shows etc.</p>
+      <ul>
+        <li class="dent_0" >:params => {</li>
+        <li class="dent_1" >  :tag_ids => [2, 3, 8],</li>
+        <li class="dent_1" >  :tag_attributes => {</li>
+        <li class="dent_2" >    0 => {name: “silly post”}</li>
+        <li class="dent_2" >    1 => {name: “serious post”}</li>
+        <li class="dent_1" >   }</li>
+        <li class="dent_0" >}</li>
+      </ul>
 
-      <sub>posted 3 August 2016</sub>
+      <p>All this being said (and it wouldn’t be a proper post on my site if it didn’t include the line “I had trouble with [something]”), nested attributes were hard for me to grasp at first and I’m sure this wouldn’t have helped at all.</p>
+
+      <sub>posted 25 August 2016</sub>
     </section>
 
     <aside id="about_me">
@@ -73,6 +86,26 @@
       <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </aside>
+
+    <section>
+      <h3>New to working with APIs</h3>
+
+      <img src="./images/spotify.png" class="post_photo" alt="spotify api logo">
+
+      <p>I recently spoke with a lot of other students at the Flatiron School, where I take online classes, regarding an attempt at building our own app. I saw some of the projects that they had been working on and was very impressed. After asking some questions, I found that their coding abilities weren’t too far ahead of my own apart from the knowledge of adding and working with APIs.</p>
+
+      <p>These APIs were making a standard new app much more interesting, and I’m being told by the students that they simply found this API online and followed directions to incorporate it into their code. Could it be that easy? I only had a vague understanding of what an API was and had no idea how to integrate them into my code. So if you are anything like me, read on.</p>
+
+      <p>Research break...</p>
+
+      <p>I've found that an API is a program (not always separate from the main function) on a server that dishes out information upon request. This is basically a way for your program to work with the data that any user can plainly see on that website but wouldn’t like to copy manually to due quantity i.e. (latitude and longitude from Google maps, or friends on Facebook).</p>
+
+      <p>So it turns out that most APIs do, in fact, have documentation; but I also found that this documentation can be very difficult to follow for a first timer and that it will certainly take practice. You’ll also have to register an account with the developer site for authentication purposes.</p>
+
+      <p>I decided to do some hands-on research with the Spotify API. The code they provide is all NodeJS, I only have very basic javascript knowledge so this took rather long, but once I pasted what and where I was supposed to, we were up and running. I can now build apps that a user could log in with their Spotify account and my app would be able to work with their favorited songs and playlists to hypothetically recommend local shows etc.</p>
+
+      <sub>posted 3 August 2016</sub>
+    </section>
 
     <section>
       <h3>Over-writing is NOT the answer</h3>

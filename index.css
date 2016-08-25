@@ -231,6 +231,25 @@ section sub {
   margin-bottom: 10px;
 }
 
+/*nested attributes blog post*/
+
+.dent_0 {
+  list-style-type: none;
+  padding-right: 30px; 
+}
+
+.dent_1 {
+  list-style-type: none;
+  padding-left: 10px;
+  padding-right: 30px;
+}
+
+.dent_2 {
+  list-style-type: none;
+  padding-left: 20px;
+  padding-right: 30px;
+}
+
 /*filetree blog post*/
 
 .indent_0 {
