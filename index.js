@@ -1,8 +1,14 @@
-function show() {}
+function show() {
+  $('').className('');
+}
 
-function hide() {}
+function reHide() {
+  $('').className('hidden');
+}
 
 $(document).ready(function() {
-  $('a.show').on("click", show());
-  $('a.hide').on("click", hide());
+  $('.hidden').hide();
+  $('a.show_hide').on("click", show());
+  $('a.show_hide').on("click", reHide());
+  // toggle ???
 });
