@@ -1,14 +1,14 @@
-function show() {
-  $('').className('');
-}
-
-function reHide() {
-  $('').className('hidden');
-}
-
 $(document).ready(function() {
-  $('.hidden').hide();
-  $('a.show_hide').on("click", show());
-  $('a.show_hide').on("click", reHide());
-  // toggle ???
+  hideSubPosts();
+  togglePosts();
 });
+
+function togglePosts() {
+  $('.post').on("click", function(){
+    $(this).find('.subPost').slideToggle();
+  });
+}
+
+function hideSubPosts(){
+  $('.subPost').hide();
+}
