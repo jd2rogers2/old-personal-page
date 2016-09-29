@@ -1,12 +1,10 @@
 $(document).ready(function() {
   hideSubPosts();
-  togglePosts();
 });
 
-function togglePosts() {
-  $('.post').on("click", function(){
-    $(this).find('.subPost').slideToggle();
-  });
+function togglePosts(a_tag) {
+  debugger;
+  a_tag.parentElement.parentElement.find('.subPost').slideToggle();
 }
 
 function hideSubPosts(){
