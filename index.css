@@ -14,8 +14,9 @@ h3 {
 
 img#resume {
   display: inline-block;
-  margin: 4px 10% 4px 10%;
-  width: 80%;
+  margin: 4px 20%;
+  width: 60%;
+  max-width: 700px;
   border-radius: 0px;
   border: #E0E0E0 solid 1px;
 }
