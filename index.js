@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  hideSubPosts();
-  clickMoreLess();
+  // hideSubPosts();
+  // clickMoreLess();
 });
 
 function clickMoreLess(){

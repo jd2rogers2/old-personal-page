@@ -10,6 +10,16 @@ h3 {
   text-align: center;
 }
 
+/*resume page*/
+
+img#resume {
+  display: inline-block;
+  margin: 4px 10% 4px 10%;
+  width: 80%;
+  border-radius: 0px;
+  border: #E0E0E0 solid 1px;
+}
+
 /*body*/ 
 
 body {

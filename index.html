@@ -20,9 +20,75 @@
       </div> <!--profile-->
       <nav>
           <a href="./index.html" id="blog">Blog</a>
-          <a href="#">Resumé</a>
+          <a href="./resume.html">Resumé</a>
       </nav>
     </header>
+
+    <div class="post">
+      <section>
+        <h3>I mustache you a question</h3>
+
+        <div class="subPost">
+          <img src="./images/handlebars-logo.jpg" class="post_photo" alt="between a rock and a hard place sign">
+        </div> <!-- subPost -->
+
+        <p>I’m currently taking online webdev classes at Flatiron and for a second there I thought I had finished my rails and jquery final project. I then went on to read some other students blog posts for ideas. This is when it hit me; how badly I have mistaken.</p>
+
+        <div class="subPost">
+          <p>This project had felt somewhat easy to me. My thought process was to start with the ajax request, whether it was a get or a post resulting from a click, I learned that these could be called from the doc ready and script tags in the html file, and this realization felt natural to me. Where is that ajax request going to? Well, I basically had to make my rails app into an api by using respond_to in the controller and rendering a json page when desired, again somewhat natural. Now that we’re getting an array of object as the callback from the ajax request I did the time consuming, but not difficult, job of parsing it into html and appending it to my div tags. WRONG!</p>
+
+          <p>I had refactored pretty well I thought, all my js functions weren’t over verbose, they all did one job. Then it occurred to me that I was thinking each function was the big picture, when in reality I needed to take another step back to see my mistake. I had these long strings of html in my js files, this was ugly. Folks, look at the big picture once in a while, I could have saved myself a lot of time and work but the silver lining is I got to practice a lot of handlebars all at once and really get it down solid.</p>
+
+          <p>Refactoring to use handlebars was tough though. First I had to reteach myself the basics but then I started to try and do things I had never done before. Most of this involved links and if statements. Here is an example of one of my attempts:</p>
+
+          <pre>
+      if ({{id}}) {
+        &lt;td&gt;&lt;a rel=&#39;nofollow&#39; data-method=&#39;delete&#39;
+        href=&quot;/comments/&quot;.concat({{id}})&gt;delete&lt;/a&gt;&lt;/td&gt;
+      }
+          </pre>
+
+          <p>This didn’t work, I was getting a delete button regardless but the route was always to “/comments/“. After some digging I added a boolean parameter to the template call and refactored to:</p>
+
+          <pre>
+      {{#if boolean}}
+        &lt;td&gt;&lt;a rel=&#39;nofollow&#39; data-method=&#39;delete&#39;
+        href=&quot;/comments/{{id}}&quot;&gt;delete&lt;/a&gt;&lt;/td&gt;
+      {{/if}}
+          </pre>
+
+          <p>and success! To see the full code here’s the GitHub repo <a href="https://github.com/jd2rogers2/dilemma_app_v_2.0">https://github.com/jd2rogers2/dilemma_app_v_2.0</a> and here’s a quick demo video <a href="https://www.youtube.com/watch?v=eA28KmC0O50">https://www.youtube.com/watch?v=eA28KmC0O50</a></p>
+        </div> <!-- subPost -->
+
+        <sub>posted 26 October 2016</sub>
+      </section>
+    </div> <!-- post -->
+
+    <aside id="about_me">
+      <h3>About me</h3>
+
+      <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
+
+      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
+
+      <sub>as of 13 July 2016</sub>
+    </aside>
+
+    <aside id="links">
+      <h3>Links</h3>
+      <ul>
+        <li><a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png"></a></li>
+        <li><a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg"></a></li>
+        <li><a href="https://www.linkedin.com/in/jamesrogers3
+        " target="_blank"><img src="./images/linkedin.png"></a></li>
+        <li><a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png"></a></li>
+      </ul>
+    </aside>
+
+    <aside id="twitter">
+      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </aside>
 
     <div class="post">
       <section>
@@ -44,21 +110,9 @@
           <p>Hopefully you can learn these lessons earlier than me and it will save you some stress! Link to my rails dilemma app repo <a href="https://github.com/jd2rogers2/dilemma_app">here</a></p>
         </div> <!-- subPost -->
 
-        <a href="#" onclick="togglePosts(this)">more/less</a><br>
-
         <sub>posted 22 September 2016</sub>
       </section>
     </div> <!-- post -->
-
-    <aside id="about_me">
-      <h3>About me</h3>
-
-      <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
-
-      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
-
-      <sub>as of 13 July 2016</sub>
-    </aside>
 
     <div class="post">
       <section>
@@ -124,22 +178,6 @@
         <sub>posted 3 August 2016</sub>
       </section>
     </div> <!-- Post -->
-
-    <aside id="links">
-      <h3>Links</h3>
-      <ul>
-        <li><a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png"></a></li>
-        <li><a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg"></a></li>
-        <li><a href="https://www.linkedin.com/in/jamesrogers3
-        " target="_blank"><img src="./images/linkedin.png"></a></li>
-        <li><a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png"></a></li>
-      </ul>
-    </aside>
-
-    <aside id="twitter">
-      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </aside>
 
     <div class="post">
       <section>
