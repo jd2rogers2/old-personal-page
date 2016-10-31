@@ -1,0 +1,1 @@
+$('#collapseJumbo').collapse("hide");
