@@ -1,6 +1,4 @@
-get rid of gray lines under/over collapse buttons
-collapsible panels not lined up
-jumbotron paragraphs not lined up
+make panels expand horizontal too, to fit post
 shrink hamburger button
 add content in general
   add twitter feed
@@ -8,3 +6,5 @@ add content in general
   insert pic
   add pics for posts
   posts content
+
+*******change script back to bootstrap.min.js after dev phase*****
