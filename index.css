@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: gray;
+  background-color: #eee;
 }
 
 li {
@@ -25,21 +25,21 @@ a {
   padding: 0;
   width: 20%;
   height: 100%;
-  background-color: black;
+  background-color: #222;
 }
 
 .navbar-left img {
   border-radius: 100px;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25);
   border: #E0E0E0 2px solid;
-  width: 80%;
+  width: 70%;
   height: auto;
-  margin: 10% auto;
+  margin: 10% auto 10% 10px;
   display: block;
 }
 
 .navbar-top {
-  background-color: black;
+  background-color: #222;
   width: 100%;
   height: 200px;
   position: fixed;
@@ -50,16 +50,43 @@ a {
   border-radius: 100px;
   border: #E0E0E0 2px solid;
   margin: 25px;
-  height: 150px;
+  height: 100px;
   width: auto;
   float: left;
 }
 
-.links a img {
+.navbar h5 {
+  margin: 10px 0 0 10px;
+}
+
+.navbar .local-links a {
+  margin: 0 5% 0 10px;
+}
+
+.navbar p {
+  margin: auto;
+}
+
+.navbar .external-links a img {
   height: 30px;
   width: 30px;
   float: left;
-  margin: 5px 3% 5px 3%;
+  margin: 5px 0px 5px 10px;
+}
+
+.navbar .about-me {
+  position: absolute;
+  bottom: 20px;
+}
+
+.navbar .about-me p {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar-top .about-me {
+  left: 155px;
 }
 
 .content-right {
@@ -68,12 +95,17 @@ a {
 }
 
 .content-bottom {
-  width: 100%;
-  margin: 210px 10px 0px 10px;
+  width: 90%;
+  margin: 210px 5% 0px 5%;
 }
 
 .jumbotron {
   background-color: white;
 }
+
+.footer p {
+  margin-left: 35%;
+}
+
 
 
