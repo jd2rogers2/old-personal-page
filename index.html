@@ -26,6 +26,83 @@
 
     <div class="post">
       <section>
+        <h3>Hey Flatiron Students, read this before starting your Rails/Angular final project</h3>
+
+        <div class="subPost">
+          <img src="./images/angular.png" class="post_photo" alt="angular logo">
+        </div> <!-- subPost -->
+
+        <p>So you’ve finished the angular section and you’re on to your final project. Any big ideas? Building the next big thing? The next Facebook or Twitter?</p>
+
+        <div class="subPost">
+          <p>Well if you're like me you were just starting to feel comfortable with angular (but let’s be honest, that last section of the curriculum went by pretty fast and that’s probably just because you’re really smart now); however you're not super comfortable with how it communicates with the back end, and definitely not confident in the behind the scenes code i.e. bower.json file, what gems you’ll need to use, etc.</p>
+
+          <p>First thing you should do is watch <a href="https://www.youtube.com/watch?v=YNwehQGslcQ&t=11364s">this video</a>. If you don’t take anything else away from this post, at least watch this video; I don’t know why they don’t include a link on the lesson’s readme. Yes, it’s 3 hours long but it is a really good start and I’m going to be building off that. Once you’ve finished with that, enjoy my notes below (in no particular order). Some are solutions, hacks, workarounds, and some are just resources but they’ll get you to a place where your web app works and feels good. You can take it from here and turn it into the next big thing. </p>
+
+          <p>Lastly, please feel free to fork and clone <a href="https://github.com/jd2rogers2/presently">my code</a>. I spent a fair amount of time clicking around other peoples’ repos because I didn’t know them and wasn’t sure they would be weirded out, this way you can view multiple files at once and don't have to wait for pages to load.</p>
+
+          <ul>
+            <li>.bowerrc file - Luke seemed to get angular to work in the video without any trouble but not I, I eventually found that this small file points to where your bower_components file is saved</li>
+            <li>I also ended up needing to remove the vendor key and add a resolutions section to my bower.json file - <a href="http://jaketrent.com/post/bower-resolutions/">http://jaketrent.com/post/bower-resolutions/</a></li>
+            <li>Angular adds some great validations in the form of input types, try number and url for starters <a href="https://docs.angularjs.org/api/ng/input/input%5Burl%5D">https://docs.angularjs.org/api/ng/input/input%5Burl%5D</a></li>
+            <li>You’re probably well versed in serializers at this point but I found it better to be over verbose with my JSON so I learned a couple extra tricks, here is an example</li>
+
+            <script src="https://gist.github.com/jd2rogers2/6d8fe8563994a2b17cf74a1f0bbdc493.js"></script>
+
+            <li>.onEnter in routes.js - think of this like a before_each in your ruby controllers <a href="https://github.com/angular-ui/ui-router/wiki">https://github.com/angular-ui/ui-router/wiki</a></li>
+            <li>.run in app.js - I used this to persist my currentUser during a refresh. I saw other students creating entirely separate controllers or saving to the rootscope but this worked for me and was really quick <a href="http://www.learnwithdaniel.com/2015/10/rails-angular-authentication/">http://www.learnwithdaniel.com/2015/10/rails-angular-authentication/</a></li>
+            <li>Self-referencing models - if you want your users to be able to have friends check out this rails cast <a href="http://railscasts.com/episodes/163-self-referential-association?autoplay=true">http://railscasts.com/episodes/163-self-referential-association?autoplay=true</a></li>
+            <li>Nest controllers.rb in api/v1 directories - this really does nothing but makes your api seem legit, remember to put your controllers in controllers/api/v1/ and put modules in each controller per rails convention</li>
+            <li>ngResources - I saw a lot of other students setting up their $http requests, defining the method, specifying the headers; and then doing that 4 or more times for each model so that they could get, post, put, and delete but you’ll save a lot of code by using ngResource. <a href="https://docs.angularjs.org/api/ngResource/service/$resource">https://docs.angularjs.org/api/ngResource/service/$resource</a></li>
+            <li>Devise - angular_devise kind of freaks a lot of people out when they are about to start their project but don’t worry, it should come naturally. just set up your form and have it call a function that returns Auth.register() (or .login()) in your controller and the response will be your user (providing your json is set up correctly)</li>
+            <li>Devise listeners - a little less natural was setting up listeners for devise, these I actually just stumbled upon in someone else’s code</li>
+
+            <script src="https://gist.github.com/jd2rogers2/35006dfd3367cfe8465a614692302ccb.js"></script>
+
+            <li>.$promise.then to update dom - updating the DOM with ngResource is also easy, after making your .save request to create a new instance just add .$promise.then(function(response){$scope.currentUser.events = response.events}); and your page updates. Effortless...</li>
+            <li>Navbar controller - this is just a quick trick I noticed a lot of people were using. You can use an ng-include in your index.html and insert a navbar (similarly to how we used partials in rails) and then put your ui-view below that. this way you can have a separate controller for your navbar if desired</li>
+            <li>novalidate - I saw some other students’ projects with this attribute in a form tag. It does exactly what you would guess, it tells angular not to run any of the default validations; use it as desired but I left it out since validations were one of the requirements. </li>
+
+            <h5>Some other reminders</h5>
+            <li>Use orderBy to sort all your ngRepeats</li>
+            <li>If you use an ng-model inside of an ng-if it creates a child scope so you’ll have to nest your models i.e. ng-model=“item.name” instead of just “name"</li>
+
+            <p>So I hope this helped. Good luck on your final project and after graduation!</p>
+          </ul>
+        </div> <!-- subPost -->
+
+        <sub>posted 30 November 2016</sub>
+      </section>
+    </div> <!-- post -->
+
+    <aside id="about_me">
+      <h3>About me</h3>
+
+      <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
+
+      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
+
+      <sub>as of 13 July 2016</sub>
+    </aside>
+
+    <aside id="links">
+      <h3>Links</h3>
+      <ul>
+        <li><a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png"></a></li>
+        <li><a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg"></a></li>
+        <li><a href="https://www.linkedin.com/in/jamesrogers3
+        " target="_blank"><img src="./images/linkedin.png"></a></li>
+        <li><a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png"></a></li>
+      </ul>
+    </aside>
+
+    <aside id="twitter">
+      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </aside>
+
+    <div class="post">
+      <section>
         <h3>I mustache you a question</h3>
 
         <div class="subPost">
@@ -63,32 +140,6 @@
         <sub>posted 26 October 2016</sub>
       </section>
     </div> <!-- post -->
-
-    <aside id="about_me">
-      <h3>About me</h3>
-
-      <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
-
-      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
-
-      <sub>as of 13 July 2016</sub>
-    </aside>
-
-    <aside id="links">
-      <h3>Links</h3>
-      <ul>
-        <li><a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png"></a></li>
-        <li><a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg"></a></li>
-        <li><a href="https://www.linkedin.com/in/jamesrogers3
-        " target="_blank"><img src="./images/linkedin.png"></a></li>
-        <li><a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png"></a></li>
-      </ul>
-    </aside>
-
-    <aside id="twitter">
-      <a class="twitter-timeline" href="https://twitter.com/sregorsemaj" data-widget-id="732700314827149312">Tweets by @sregorsemaj</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </aside>
 
     <div class="post">
       <section>
