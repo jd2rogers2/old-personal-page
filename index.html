@@ -29,98 +29,343 @@
 
   <div class="content-right">
     <div class="jumbotron">
-      <h3 class="showPost">featured post</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <div class="hidden-content">
-        <p>hidden hidden hidden hidden hidden hidden Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <img src="./images/angular.png">
+      <h3>Hey Flatiron Students, read this before starting your Rails/Angular final project</h3>
+
+      <p>So you’ve finished the angular section and you’re on to your final project. Any big ideas? Building the next big thing? The next Facebook or Twitter?</p>
+
+      <div class="hidden-content" id="final-proj">
+        <p>Well if you're like me you were just starting to feel comfortable with angular (but let’s be honest, that last section of the curriculum went by pretty fast and that’s probably just because you’re really smart now); however you're not super comfortable with how it communicates with the back end, and definitely not confident in the behind the scenes code i.e. bower.json file, what gems you’ll need to use, etc.</p>
+
+        <p>First thing you should do is watch <a href="https://www.youtube.com/watch?v=YNwehQGslcQ&t=11364s">this video</a>. If you don’t take anything else away from this post, at least watch this video; I don’t know why they don’t include a link on the lesson’s readme. Yes, it’s 3 hours long but it is a really good start and I’m going to be building off that. Once you’ve finished with that, enjoy my notes below (in no particular order). Some are solutions, hacks, workarounds, and some are just resources but they’ll get you to a place where your web app works and feels good. You can take it from here and turn it into the next big thing. </p>
+
+        <p>Lastly, please feel free to fork and clone <a href="https://github.com/jd2rogers2/presently">my code</a>. I spent a fair amount of time clicking around other peoples’ repos because I didn’t know them and wasn’t sure they would be weirded out, this way you can view multiple files at once and don't have to wait for pages to load.</p>
+
+        <ul>
+          <li>.bowerrc file - Luke seemed to get angular to work in the video without any trouble but not I, I eventually found that this small file points to where your bower_components file is saved</li>
+          <li>I also ended up needing to remove the vendor key and add a resolutions section to my bower.json file - <a href="http://jaketrent.com/post/bower-resolutions/">http://jaketrent.com/post/bower-resolutions/</a></li>
+          <li>Angular adds some great validations in the form of input types, try number and url for starters <a href="https://docs.angularjs.org/api/ng/input/input%5Burl%5D">https://docs.angularjs.org/api/ng/input/input%5Burl%5D</a></li>
+          <li>You’re probably well versed in serializers at this point but I found it better to be over verbose with my JSON so I learned a couple extra tricks, here is an example</li>
+
+          <script src="https://gist.github.com/jd2rogers2/6d8fe8563994a2b17cf74a1f0bbdc493.js"></script>
+
+          <li>.onEnter in routes.js - think of this like a before_each in your ruby controllers <a href="https://github.com/angular-ui/ui-router/wiki">https://github.com/angular-ui/ui-router/wiki</a></li>
+          <li>.run in app.js - I used this to persist my currentUser during a refresh. I saw other students creating entirely separate controllers or saving to the rootscope but this worked for me and was really quick <a href="http://www.learnwithdaniel.com/2015/10/rails-angular-authentication/">http://www.learnwithdaniel.com/2015/10/rails-angular-authentication/</a></li>
+          <li>Self-referencing models - if you want your users to be able to have friends check out this rails cast <a href="http://railscasts.com/episodes/163-self-referential-association?autoplay=true">http://railscasts.com/episodes/163-self-referential-association?autoplay=true</a></li>
+          <li>Nest controllers.rb in api/v1 directories - this really does nothing but makes your api seem legit, remember to put your controllers in controllers/api/v1/ and put modules in each controller per rails convention</li>
+          <li>ngResources - I saw a lot of other students setting up their $http requests, defining the method, specifying the headers; and then doing that 4 or more times for each model so that they could get, post, put, and delete but you’ll save a lot of code by using ngResource. <a href="https://docs.angularjs.org/api/ngResource/service/$resource">https://docs.angularjs.org/api/ngResource/service/$resource</a></li>
+          <li>Devise - angular_devise kind of freaks a lot of people out when they are about to start their project but don’t worry, it should come naturally. just set up your form and have it call a function that returns Auth.register() (or .login()) in your controller and the response will be your user (providing your json is set up correctly)</li>
+          <li>Devise listeners - a little less natural was setting up listeners for devise, these I actually just stumbled upon in someone else’s code</li>
+
+          <script src="https://gist.github.com/jd2rogers2/35006dfd3367cfe8465a614692302ccb.js"></script>
+
+          <li>.$promise.then to update dom - updating the DOM with ngResource is also easy, after making your .save request to create a new instance just add .$promise.then(function(response){$scope.currentUser.events = response.events}); and your page updates. Effortless...</li>
+          <li>Navbar controller - this is just a quick trick I noticed a lot of people were using. You can use an ng-include in your index.html and insert a navbar (similarly to how we used partials in rails) and then put your ui-view below that. this way you can have a separate controller for your navbar if desired</li>
+          <li>novalidate - I saw some other students’ projects with this attribute in a form tag. It does exactly what you would guess, it tells angular not to run any of the default validations; use it as desired but I left it out since validations were one of the requirements. </li>
+
+          <h5>Some other reminders</h5>
+          <li>Use orderBy to sort all your ngRepeats</li>
+          <li>If you use an ng-model inside of an ng-if it creates a child scope so you’ll have to nest your models i.e. ng-model=“item.name” instead of just “name"</li>
+
+          <p>So I hope this helped. Good luck on your final project and after graduation!</p>
+        </ul>
       </div>
-      <sub>some date</sub>
+      <sub>posted 30 November 2016</sub><br>
+      <button class="showPost">more/less</button>
     </div>
 
     <div class="posts">
-      <h3 class="showPost">post</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>I mustache you a question</h3>
+      <img class="left" src="./images/handlebars-logo.jpg">
+      <p>I’m currently taking online webdev classes at Flatiron and for a second there I thought I had finished my rails and jquery final project. I then went on to read some other students blog posts for ideas. This is when it hit me; how badly I have mistaken.</p>
+
       <div class="hidden-content">
-        <p>hidden hidden hidden hidden hidden hidden Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>This project had felt somewhat easy to me. My thought process was to start with the ajax request, whether it was a get or a post resulting from a click, I learned that these could be called from the doc ready and script tags in the html file, and this realization felt natural to me. Where is that ajax request going to? Well, I basically had to make my rails app into an api by using respond_to in the controller and rendering a json page when desired, again somewhat natural. Now that we’re getting an array of object as the callback from the ajax request I did the time consuming, but not difficult, job of parsing it into html and appending it to my div tags. WRONG!</p>
+
+        <p>I had refactored pretty well I thought, all my js functions weren’t over verbose, they all did one job. Then it occurred to me that I was thinking each function was the big picture, when in reality I needed to take another step back to see my mistake. I had these long strings of html in my js files, this was ugly. Folks, look at the big picture once in a while, I could have saved myself a lot of time and work but the silver lining is I got to practice a lot of handlebars all at once and really get it down solid.</p>
+
+        <p>Refactoring to use handlebars was tough though. First I had to reteach myself the basics but then I started to try and do things I had never done before. Most of this involved links and if statements. Here is an example of one of my attempts:</p>
+
+        <pre>
+        if ({{id}}) {
+          &lt;td&gt;&lt;a rel=&#39;nofollow&#39; data-method=&#39;delete&#39;
+          href=&quot;/comments/&quot;.concat({{id}})&gt;delete&lt;/a&gt;&lt;/td&gt;
+        }
+        </pre>
+
+        <p>This didn’t work, I was getting a delete button regardless but the route was always to “/comments/“. After some digging I added a boolean parameter to the template call and refactored to:</p>
+
+        <pre>
+        {{#if boolean}}
+          &lt;td&gt;&lt;a rel=&#39;nofollow&#39; data-method=&#39;delete&#39;
+          href=&quot;/comments/{{id}}&quot;&gt;delete&lt;/a&gt;&lt;/td&gt;
+        {{/if}}
+        </pre>
+
+        <p>and success! To see the full code here’s the GitHub repo <a href="https://github.com/jd2rogers2/dilemma_app_v_2.0">https://github.com/jd2rogers2/dilemma_app_v_2.0</a> and here’s a quick demo video <a href="https://www.youtube.com/watch?v=eA28KmC0O50">https://www.youtube.com/watch?v=eA28KmC0O50</a></p>
       </div>
-      <sub>some date</sub>
+      <sub>posted 26 October 2016</sub><br>
+      <button class="showPost">more/less</button>
     </div>
 
     <div class="posts">
-      <h3 class="showPost">post</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>Thinking > coding</h3>
+      <img src="./images/thinker.jpg" class="right">
+      <p>I recently went on a canoeing and camping trip on the Saco river in Maine with some friends. One of them happens to be a junior web developer of sorts at Cengage. Naturally I asked him everything I could about his first job as a developer and his response surprised me. When I asked him if he’s learning a lot of new cool code, he said no, he said that he was learning how to think more like a programmer.</p>
+
       <div class="hidden-content">
-        <p>hidden hidden hidden hidden hidden hidden Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>It finally made sense to me when I heard something similar from a Flatiron employee guest speaking on a webinar. He said that when he first started he took a problem, that he could not work out, to his boss and they went through it together; he was amazed that his boss took an hour or more to think everything over and write out pseudo code before even writing one line of actual code.</p>
+
+        <p>Keeping all this in mind as I worked on my final project for Rails made it such a pleasant experience. I feel like I wrote more code than ever before and yet I can still comprehend and organize it all in my head. After finishing my Sinatra app I was so burnt out that I was probably writing really bad code and hardly refactored.</p>
+
+        <p>I’m very pleased with my app and I credit this to two main things, the first is thinking more than coding as you’ve read about above, and the second is to refactor as you go. My main technique for this was, every time I noticed that I was writing a line of code even remotely similar to something else in my app, I would make a comment below that line and get back to it after getting that section running. This way you don’t end up with a lot of scrappy code and too much refactoring to do at the end. Also, if you refactor as you go you get to take little breaks from the creative thinking (well, for a different type of creative thinking anyway) and this gives you more time to reflect on the code you just wrote and if you like how it works in the grand scheme.</p>
+
+        <p>Hopefully you can learn these lessons earlier than me and it will save you some stress! Link to my rails dilemma app repo <a href="https://github.com/jd2rogers2/dilemma_app">here</a></p>
       </div>
-      <sub>some date</sub>
+      <sub>posted 22 September 2016</sub><br>
+      <button class="showPost">more/less</button>
     </div>
 
     <div class="posts">
-      <h3 class="showPost">post</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>Nested Attributes Make Me RESTless</h3>
+      <img src="./images/rails.png" class="left" alt="ruby on rails logo">
+
+      <p>I’m no expert on Rails (or anything really for that matter), but it seems to me, with all the convention that’s built in, that nested attributes would also follow REST conventions in their naming, since they are likely to correspond with a nested resource or an index of  another Model's index.</p>
+
       <div class="hidden-content">
-        <p>hidden hidden hidden hidden hidden hidden Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>I’ll explain more, in this example we’re creating a new blog post and a new tag as well. So, for instance, instead of tag_attributes for the nomenclature of the hash why not just tags? The way rails is set up now we already have tag_ids as a key in our params hash, and it’s value would be an array of IDs (integers). We also have tag_attributes if we want to make a new Tag instance that is associated with this post. Wouldn’t it by DRYer to have just tags as a key? I think that the tags key could point to an array of IDs just like tag_ids but then create a new instance every time it encounters a hash. It would also automatically sequence to the next ID number for the new tag(s) because it would know the next number in the sequence from the original database call. Below is an example of the tags key in the params hash, with three existing tags, and two new, being associated with our new post.</p>
+
+        <ul>
+          <li class="dent_0" >:params => {</li>
+          <li class="dent_1" >  :tags => [2, 3, 8, {id: 9, name: “silly post"}, {id: 10, name: “serious post"}]</li>
+          <li class="dent_0" >}</li>
+        </ul>
+
+        <p>This would do away with the nasty numerical key that corresponds with a hash of attributes for the new tags (tag_attributes) params key; which are seemingly irrelevant except as placeholders anyway, they are not IDs of the new instances. As in the 1 and 0 below:</p>
+
+        <ul>
+          <li class="dent_0" >:params => {</li>
+          <li class="dent_1" >  :tag_ids => [2, 3, 8],</li>
+          <li class="dent_1" >  :tag_attributes => {</li>
+          <li class="dent_2" >    0 => {name: “silly post”}</li>
+          <li class="dent_2" >    1 => {name: “serious post”}</li>
+          <li class="dent_1" >   }</li>
+          <li class="dent_0" >}</li>
+        </ul>
+
+        <p>All this being said (and it wouldn’t be a proper post on my site if it didn’t include the line “I had trouble with [something]”), nested attributes were hard for me to grasp at first and I’m sure this wouldn’t have helped at all.</p>
       </div>
-      <sub>some date</sub>
+      <sub>posted 25 August 2016</sub><br>
+      <button class="showPost">more/less</button>
     </div>
 
     <div class="posts">
-      <h3 class="showPost">post</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>New to working with APIs</h3>
+      <img src="./images/spotify.png" class="right">
+
+      <p>I recently spoke with a lot of other students at the Flatiron School, where I take online classes, regarding an attempt at building our own app. I saw some of the projects that they had been working on and was very impressed. After asking some questions, I found that their coding abilities weren’t too far ahead of my own apart from the knowledge of adding and working with APIs.</p>
+
       <div class="hidden-content">
-        <p>hidden hidden hidden hidden hidden hidden Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>These APIs were making a standard new app much more interesting, and I’m being told by the students that they simply found this API online and followed directions to incorporate it into their code. Could it be that easy? I only had a vague understanding of what an API was and had no idea how to integrate them into my code. So if you are anything like me, read on.</p>
+
+        <p>Research break...</p>
+
+        <p>I've found that an API is a program (not always separate from the main function) on a server that dishes out information upon request. This is basically a way for your program to work with the data that any user can plainly see on that website but wouldn’t like to copy manually to due quantity i.e. (latitude and longitude from Google maps, or friends on Facebook).</p>
+
+        <p>So it turns out that most APIs do, in fact, have documentation; but I also found that this documentation can be very difficult to follow for a first timer and that it will certainly take practice. You’ll also have to register an account with the developer site for authentication purposes.</p>
+
+        <p>I decided to do some hands-on research with the Spotify API. The code they provide is all NodeJS, I only have very basic javascript knowledge so this took rather long, but once I pasted what and where I was supposed to, we were up and running. I can now build apps that a user could log in with their Spotify account and my app would be able to work with their favorited songs and playlists to hypothetically recommend local shows etc.</p>
       </div>
-      <sub>some date</sub>
+      <sub>posted 3 August 2016</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>Over-writing is NOT the answer</h3>
+      <img src="./images/goalsongoals.png" class="left" alt="crappy web app homepage">
+
+      <p>I’ve just finished my first web app and I’m very proud of it as I put a lot of time into it; but I have learned some very important lessons this week, and those are to work smart and plan ahead. I literally felt done with the app at least three times but then decided to add another capability. This is not an easy thing in the world of code, my friends. So I say to you, think hard about what you want your app to do and stick to the plan; otherwise you may end up with 10-15 files with 100+ lines of code each, and I don’t know about you but that’s beyond my current mental capacity and code skills.</p>
+
+
+      <div class="hidden-content">
+        <p>Often times over complicating your code can break it or make it incomprehensible. A couple questions I wish I had asked myself:</p>
+
+        <dl>
+          <dt>1. What is the cleanest and smartest way to organize my code before starting? (keep it flexible for future additions)</dt>
+          <dd>- Do this by abstracting i.e. creating lots of helper methods</dd>
+          <dt>2. How would I simply and easily (without sacrificing doing it the right way) add this capability to my current app?</dt>
+          <dd>- Also at this point, you should be re-asking question 1</dd>
+        </dl>
+
+        <p>I hope that you can use these questions ahead of your next project to save you some time and stress. Happy coding.</p>
+
+        <p>Feel free to comment/fork/contribute/etc. via <a href="https://github.com/jd2rogers2/sinatra-cms-app-assessment-v-000"> my github</a></p>
+      </div>
+      <sub>posted 28 July 2016</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>[on your mark] get ‘/set/go’</h3>
+      <img src="./images/sinatra.jpeg" class="right" alt="sinatra logo">
+
+      <p>Alright, let me just say one thing, Sinatra is awesome. Once you learn Sinatra as a student coder, Ruby and the front end are finally connected and it feels like you can do anything with it.</p>
+
+
+      <div class="hidden-content">
+        <p>Now that we have that out of the way… Working with forms and controllers has such nice flow. As you start with a simple "get ‘/signup’ do” and have a form for creating a username and password, instinctively you know that you need to pass that information back to the controller. How do you do that? With a method=“POST” and let’s say an action=“/profile” in your input tag, then a corresponding “post ‘/profile’ do” in your controller should come easy as the next step. Lastly, how would display said information back to the user, with an instance variable and some erb tags in your view file. You can build more complicated things from there but you’ll always be following that form-controller-view pattern.</p>
+
+        <p>As you dive into the details your flow gets a little choppy though and that’s because, let’s be honest, a params hash in a patch route can be long and ugly. Now, instead of params[:name] you have params[:user][:name] or something and in your form you have name=“user[name]” (or worse, name=“user[list][ ]") instead of name=“name”.</p>
+
+        <p>Keeping something like that straight in your head can be tough so I find the best solution is to not keep it in your head. Open another text editor window and shrink it as small as you’d like and keep a model of your hash in there.</p>
+
+        <p>Creating the model and setting up the names to the input was often the hardest part, but if you stick with it and test as you go, you will end up saving yourself a lot time and flipping back and forth between form and controller.</p>
+
+        <p>So... on your mark, get set, go!</p>
+      </div>
+      <sub>posted 13 July 2016</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>Learning sql just takes persistence</h3>
+      <img src="./images/sqlite-logo.png" class="left" alt="sqlite logo">
+
+      <p>At first, sql was an easy language to pick up. It was pretty basic, just creating tables, inserting into them, selecting from them, altering them… Things were great, now my programs could persist data. Then it was time to starting joining and all of the sudden things were not great, things were bad. I spent the next two to three hours very frustrated that I couldn’t grasp this concept.</p>
+
+      <div class="hidden-content">
+        <p>After reading practically every stack exchange question on sqlite joining I figured out a way to understand it that works for me. Looking back it seems easy now but it just didn’t click until I thought of the statement with a new comma placement. At first I was reading:</p>
+        
+        <ul>
+          <li class="select_statement">SELECT * FROM table1, </li>
+          <li class="select_statement">INNER JOIN table2, </li>
+          <li class="select_statement">ON table1_column = table2_column;</li>
+        </ul>
+        
+        <p>Then I started to realize that it helps to read it like:</p>
+
+        <ul>
+          <li class="select_statement">SELECT * ,</li> 
+          <li class="select_statement">FROM table1 INNER JOIN table2, </li>
+          <li class="select_statement">ON table1_column = table2_column;</li>
+        </ul>
+
+        <p>So now things were great again, we even started learning how to link our sql database with our ruby code. This was really neat until we started to build abstract and dynamic super classes that would work (build tables and such) for any child class. Things were again bad.</p>
+
+        <p>The trouble I was having this time was with interpolating method names into the sql string. Sometimes I found I could just interpolate in the standard fashion, other times I found I would need to interpolate and put it in "quotes" and ‘single quotes’, or any combination of the three. My friends, I wish I could tell you I figured this one out but alas this is why I say learning sql just takes persistence.</p>
+      </div>
+      <sub>posted 22 June 2016</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>Finishing my first gem</h3>
+      <img src="./images/rubygemsorg-logo.png" class="right" alt="rubygems.org logo">
+
+      <p>I literally just finished my first gem and it is a really awesome feeling. I coded a program that can output the weather for any zip code in the US. It can also tell you some weather information for the coming days. It scrapes from weather.gov.</p>
+
+      <div class="hidden-content">
+        <p>The best part actually came on Friday (three days ago), when I finished writing the command line portion of the program so that you can actually experience what it does. When I could type in any zip code I wanted and it would output the town/city’s name, I was a little impressed with myself. When you type in the zip it interpolates that into the url and then scrapes from that weather.gov url. It takes the weather and temp (among other things) from that url; this was the first program I had written by myself that had a massive amount of outputs, and I hadn’t even defined the outputs.</p>
+
+        <p>The next feeling of accomplishment came today when I put the finishing touches on and wrote this blog. Looking back over the past year, I’ve come a long way from just knowing basic html/css, to building my own computer, to starting slowly on codeacademy, to jumping all in and applying to The Flatiron School.</p>
+      </div>
+      <sub>posted 13 June 2016</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>Ruby Gem Filetree Setup</h3>
+      <img src="./images/sublime_text_2.png" class="left" alt="open -a 'sublime text 2' .">
+
+      <p>As I started to learn scraping, I actually found one of the hardest things to be the project set up and packaging the project as a gem. Requiring different things in different files, shell scripts, shebang statements, and all the other files that support your code but aren't widely talked about online. </p>
+
+
+      <div class="hidden-content">
+        <p>After searching the web, I found no filetrees that also had descriptions of what the file did and what content to include. So I thought I would build a list of everything that goes in your root directory for a ruby project. I hope you like it.</p>
+
+        <p>A quick note for those who have a similar skill level as I do now: you may be wondering about shell scripts and requiring gems/files, I have listed some additional links at the end of this blog for you.</p>
+
+        <ul>
+          <li class="indent_0">root directory - holds all files and folders (folders end in a backslash below)</li>
+            <li class="indent_1">bin/ - this folder generally only holds executable files (make files executable by running chmod in your command line, ls -l should then show x's if successful</li>
+              <li class="indent_2">runner - sometimes also named after the project</li>
+                <li class="indent_3">this is where you actually call the classes/methods to run your program</li>
+                <li class="indent_3">make sure to include require “environment”</li>
+              <li class="indent_2">console - this file is used to peak inside your program, along with test variables and such, using IRB</li>
+                <li class="indent_3">at the top make sure to have a shebang statement that will load your program in ruby, usually looks something like #!/usr/bin/env ruby</li>
+                <li class="indent_3">should require bundler/setup, IRB, and the file where your ruby code is. at the end call IRB.start</li>
+              <li class="indent_2">setup - this file houses code that define settings that your program will abide by</li>
+                <li class="indent_3">so if it is a cli program we would start with #!/bin/bash</li>
+                <li class="indent_3">other commonly included things are set -euo pipefail and IFS=$'\n\t'</li>
+                <li class="indent_3">more on these below in resources but the first specifies error settings, and the second, line break settings (IFS stands for internal field separator)</li>
+                <li class="indent_3">another best practice is to include bundle install in this file</li>
+            <li class="indent_1">config/ - conventionally only has your environment file</li>
+              <li class="indent_2">environment.rb</li>
+                <li class="indent_3">here is where you require all gems and files needed for the runner, this way you can just require environment in your runner. separation of duties</li>
+                <li class="indent_3">should require lib and all necessary gems</li>
+            <li class="indent_1">lib/ - basically everything internal goes here: modules, classes, and methods</li>
+              <li class="indent_2">example.rb</li>
+            <li class="indent_1">spec/ - holds all tests</li>
+              <li class="indent_2">example_test.rb</li>
+            <li class="indent_1">data/ - houses anything else needed for the project i.e. media</li>
+            <li class="indent_1">gemfile - here is where your project actually loads all necessary gems, so list all of them in the gem "name" format</li>
+            <li class="indent_1">gemfile.lock - when you bundle gem and rspec init from the command line, before starting any work on your project, this and the gemfile will be added automatically. this file is locked</li>
+            <li class="indent_1">readme.md - an explanation of what your program is used for and how to use it</li>
+            <li class="indent_1">license.md - copyright mumbo jumbo</li>
+              <li class="indent_2">it is conventional to borrow a stock license provided by github</li>
+            <li class="indent_1">rakefile - automates a lot of the build process for you</li>
+            <li class="indent_1">contributing.md - info on editing open source software, such as format and test fixes</li>
+            <li class="indent_1">.gitignore - tells git which files to ignore during commits, github has samples you can borrow</li>
+            <li class="indent_1">.rspec</li>
+            <li class="indent_1">root.gemspec</li>
+            <li class="indent_2">here you list attributes about your gem</li>
+            <li class="indent_3">make sure to list all your files using `git ls-files`.split($\)</li>
+            <li class="indent_3">also make sure to list just your runner file as an executable</li>
+        </ul>
+
+        <ul class="sources">
+          <li class="sources_title">my sources</li>
+          <li>instructors at The Flatiron School</li>
+          <li>http://learnrubythehardway.org/book/ex46.html</li>
+          <li>https://www.ruby-forum.com/topic/213637</li>
+          <li>https://github.com/blog/1184-contributing-guidelines</li>
+          <li>http://guides.rubyonrails.org/initialization.html</li>
+          <li>http://guides.rubyonrails.org/command_line.html</li>
+          </br>
+          <li class="sources_title">additional resources</li>
+          <li>http://stackoverflow.com/questions/9549450/how-to-setup-a-basic-ruby-project</li>
+          <li>http://howistart.org/posts/ruby/1</li>
+          <li>http://bundler.io/v1.11/bundler_setup.html</li>
+          <li>https://sipb.mit.edu/doc/safe-shell/</li>
+          <li>https://quickleft.com/blog/engineering-lunch-series-step-by-step-guide-to-building-your-first-ruby-gem/</li>
+          <li>http://stackoverflow.com/questions/4128235/what-is-the-exact-meaning-of-ifs-n</li>
+          <li>http://stackoverflow.com/questions/13872048/bash-script-what-does-bin-bash-mean</li>
+        </ul>
+      </div>
+      <sub>posted 10 June 2016</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>Why did I decide to learn software development?</h3>
+      <img src="./images/standup-desk.jpg" class="right" id="rotate" alt="my standup desk work station">
+
+      <p>In short... because I tried some other things and enjoyed this the most. I wasn’t being challenged at my last position, so I decided to start figuring out what I wanted to do.</p>
+
+
+      <div class="hidden-content">
+        <p>It started when I picked the wrong major and the wrong school and breezed through college with minimal effort. Then I finally got a job in real estate but wanted more. I dipped my feet in a lot of different areas such as GMAT studies, series 7 studies, building a PC, and ended up really enjoying the PC.</p>
+
+        <p>After lots of research on how each component works, I finally felt like I had a good idea of what I wanted to buy. Then a day or two of tinkering, maybe I had to buy one more component I can’t remember, and then downloading Linux to a USB and booting; and I was done! It’s a really cool experience, using a computer that I had built. Naturally I wanted to continue, so I poked around on some MOOC Java classes and CodeAcademy and what not. After a while of that, it was time to take the plunge, so I started researching full time classes.</p>
+
+        <p>Obviously a big part of my decision was the return on investment. I’d get to be a part of an industry with massive growth and that is the cool thing right now; the salary bump wasn’t bad either, and all for a minimal investment.</p>
+
+        <p>I had been saving for at least a year already, since I knew I was going to be making a career change. So a little sacrifice there in the form of reduced spending, mixed with the opportunity cost of no income for 3-6 months, tuition, and (again) 3-6 months of hard work; but that’s it, that’s really all of the expenses.</p>
+
+        <p>Flatiron was a no brainer. No other bootcamps have released jobs reports or offer tuition reimbursement, and the price for the online Learn Verified program can’t be beaten.</p>
+      </div>
+      <sub>posted 12 May 2016</sub><br>
+      <button class="showPost">more/less</button>
     </div>
 
     <div class="footer">
