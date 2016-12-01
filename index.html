@@ -7,31 +7,69 @@
 </head>
 <body>
   <div class="navbar navbar-left">
-    <h5>James D. Rogers</h5>
-    <img src="./images/profile.jpg">
     <div class="local-links">
-      <a href="#">Blog</a>  <a href="#">Resumé</a>
+      <a href="./index.html">Blog</a>  <a href="./resume.html">Resumé</a>
     </div>
 
     <div class="external-links">
-      <a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png"></a>
-      <a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg"></a>
+      <a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png" alt="github link"></a>
+      <a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg" alt="twitter link"></a>
       <a href="https://www.linkedin.com/in/jamesrogers3
-      " target="_blank"><img src="./images/linkedin.png"></a>
-      <a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png"></a>
+      " target="_blank"><img src="./images/linkedin.png" alt="linkedin link"></a>
+      <a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png" alt="facebook link"></a>
     </div>
 
-    <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
+    <div id="aboutme">
+      <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
 
-    <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
+      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
+    </div>
     <sub>as of 14 Nov '16</sub>
   </div>
 
   <div class="content-right">
-    <div class="jumbotron">
-      <img src="./images/angular.png">
-      <h3>Hey Flatiron Students, read this before starting your Rails/Angular final project</h3>
+    <img src="./images/profile.jpg" id="profile" alt="picture of me">
+    <h5 id="name">James D. Rogers</h5>
 
+    <div class="jumbotron">
+      <img src="./images/blog-before-bootstrap.png" alt="my old website">
+      <h3>My journey to bootstrap and back again</h3>
+
+      <p>In this post I have be chronicled my attempt to revamp my basic static website to now utilize bootstrap. I also did a little research on web design and layout. To cut right to the chase, I didn't end up using bootstrap, just Jquery, but it was a valuable exercise to learn how bootstrap works especially the row, 12 column system. </p>
+
+      <div class="hidden-content" id="blog-revamp-post">
+        <p>My main goal is to make my site more modern. Some specific thoughts I had were to add more color without making it look tacky, drop down navigation or expanding posts from summary to full post, and add a featured post with other posts being minimized/summarized; also changing to a more creative layout.</p>
+
+        <p>If you’re doing the same remember to make a new branch before making any commits!</p>
+
+        <p>After reading some basic how tos on bootstrap it seemed the consensus was to start from scratch to get the page layout, css, and functionality up and running before you put your own content in. To do this you should start by copying the html file from a free bootstrap template. This can be found right on the bootstrap site. Also download bootstrap (minified version, comes with jquery, fonts, etc.) and put them into a folder in your root directory. Then check all your link and script tags and make sure your page looks and acts the same as the template. From there I just started googling 'bootstrap navbar left' or going through the bootstrap docs to find the feature I wanted such as collapsable divs. </p>
+
+        <p>After copying a lot of great functionality and layout I had a pretty nice looking website, however my code was about a mile long and I hadn't written any of it. This is where I decided to change my strategy. It was overwhelming. I found it best to simply borrow the general workings of the code. So I would read over the code that I would have borrowed, pick out the top three or four pieces, such as a listener function that would add and remove classes upon click or window resize, and rephrase it in my own project. </p>
+
+        <p>So I guess really I was sort of using bootstrap's functionalities, or what other people had built with bootstrap, but not using their css. I found it better to start from scratch on my own styling rather than tinker with some default classes. It felt like painting my own piece rather than taking pieces of other works of art, cutting them up, and then gluing and blending the colors and painting styles. </p>
+
+        <p>Similar to my approach with borrowing responsive components, a lot of the ‘web design research' that I did was mostly just finding themes/templates that I liked. I did however find some objective info such as: gradients are out of style, full width sites are in (so no margins on the sides, or at least no border separating your main content), and most importantly I found a lot of info on why to predominantly feature media, especially pictures. So again, I would find a page that had a navbar on the left and check what styling they had applied using my developer tools and try what I had learned in my own site. </p>
+
+        <p>Well I’m decently pleased with how things turned out. I do wish that I could have fit my twitter feed and feature photo from my old blog in somehow; and looking back at my old blog I do like how it's simple and just in general how it looks. Again though, I’m pleased as I accomplished many of the goals I set out to. </p>
+
+        <h5>resources</h5>
+        <ul>
+          <li>https://designshack.net/articles/layouts/10-rock-solid-website-layout-examples/</li>
+          <li>https://w3layouts.com/blogging-template/</li>
+          <li>http://www.codeproject.com/Tips/889031/Bootstrap-for-Beginners</li>
+          <li>https://www.youtube.com/watch?v=V3DHVK4_N4o</li>
+        </ul>
+        <img src="./images/blog-mid-bootstrap.png" alt="blog-mid-bootstrap">
+        <img src="./images/blog-mid-jquery.png" alt="blog-mid-jquery">
+        <img src="./images/blog-mid-jquery-mobile.png" alt="blog-mid-jquery-mobile">
+      </div>
+      <sub>posted 30 November 2016</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+<div class="posts">
+      <h3>Hey Flatiron Students, read this before starting your Rails/Angular final project</h3>
+      <img src="./images/angular.png" alt="angular logo" class="right">
       <p>So you’ve finished the angular section and you’re on to your final project. Any big ideas? Building the next big thing? The next Facebook or Twitter?</p>
 
       <div class="hidden-content" id="final-proj">
@@ -76,7 +114,7 @@
 
     <div class="posts">
       <h3>I mustache you a question</h3>
-      <img class="left" src="./images/handlebars-logo.jpg">
+      <img class="left" src="./images/handlebars-logo.jpg" alt="handlebars logo">
       <p>I’m currently taking online webdev classes at Flatiron and for a second there I thought I had finished my rails and jquery final project. I then went on to read some other students blog posts for ideas. This is when it hit me; how badly I have mistaken.</p>
 
       <div class="hidden-content">
@@ -110,7 +148,7 @@
 
     <div class="posts">
       <h3>Thinking > coding</h3>
-      <img src="./images/thinker.jpg" class="right">
+      <img src="./images/thinker.jpg" class="right" alt="thinker statue photo">
       <p>I recently went on a canoeing and camping trip on the Saco river in Maine with some friends. One of them happens to be a junior web developer of sorts at Cengage. Naturally I asked him everything I could about his first job as a developer and his response surprised me. When I asked him if he’s learning a lot of new cool code, he said no, he said that he was learning how to think more like a programmer.</p>
 
       <div class="hidden-content">
@@ -161,7 +199,7 @@
 
     <div class="posts">
       <h3>New to working with APIs</h3>
-      <img src="./images/spotify.png" class="right">
+      <img src="./images/spotify.png" class="right" alt="spotify logo">
 
       <p>I recently spoke with a lot of other students at the Flatiron School, where I take online classes, regarding an attempt at building our own app. I saw some of the projects that they had been working on and was very impressed. After asking some questions, I found that their coding abilities weren’t too far ahead of my own apart from the knowledge of adding and working with APIs.</p>
 
@@ -186,7 +224,6 @@
 
       <p>I’ve just finished my first web app and I’m very proud of it as I put a lot of time into it; but I have learned some very important lessons this week, and those are to work smart and plan ahead. I literally felt done with the app at least three times but then decided to add another capability. This is not an easy thing in the world of code, my friends. So I say to you, think hard about what you want your app to do and stick to the plan; otherwise you may end up with 10-15 files with 100+ lines of code each, and I don’t know about you but that’s beyond my current mental capacity and code skills.</p>
 
-
       <div class="hidden-content">
         <p>Often times over complicating your code can break it or make it incomprehensible. A couple questions I wish I had asked myself:</p>
 
@@ -210,7 +247,6 @@
       <img src="./images/sinatra.jpeg" class="right" alt="sinatra logo">
 
       <p>Alright, let me just say one thing, Sinatra is awesome. Once you learn Sinatra as a student coder, Ruby and the front end are finally connected and it feels like you can do anything with it.</p>
-
 
       <div class="hidden-content">
         <p>Now that we have that out of the way… Working with forms and controllers has such nice flow. As you start with a simple "get ‘/signup’ do” and have a form for creating a username and password, instinctively you know that you need to pass that information back to the controller. How do you do that? With a method=“POST” and let’s say an action=“/profile” in your input tag, then a corresponding “post ‘/profile’ do” in your controller should come easy as the next step. Lastly, how would display said information back to the user, with an instance variable and some erb tags in your view file. You can build more complicated things from there but you’ll always be following that form-controller-view pattern.</p>

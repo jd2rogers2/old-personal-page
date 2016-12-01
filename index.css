@@ -1,5 +1,4 @@
 
-
 body {
   margin: 0;
   padding: 0;
@@ -18,6 +17,7 @@ body {
   border-radius: 10px;
   border-top: 5px solid #8b9db8;
   border-bottom: 5px solid #8b9db8;
+  clear: both;
 }
 
 li {
@@ -29,7 +29,7 @@ li {
 }
 
 a {
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 
 .navbar-left {
@@ -45,10 +45,37 @@ a {
   border-radius: 100px;
   box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25);
   border: #E0E0E0 2px solid;
-  width: 70%;
+  /*width: 70%;*/
   height: auto;
   margin: 10% auto 10% auto;
-  display: block;
+  /*display: block;*/
+  /*float: center;*/
+}
+
+#profile {
+  border-radius: 100px;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25);
+  border: #E0E0E0 2px solid;
+  width: 15%;
+  height: auto;
+  margin: 10px 0 10px 20px;
+  float: left;
+  display: inline-block;
+}
+
+.content-right #name {
+  float: left;
+  font-size: 3.5em;
+  margin: 20px 0 0 5px;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.content-bottom #name {
+  float: left;
+  font-size: 1.75em;
+  margin: 0;
+  margin: 30px 0 0 5%;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
 .navbar-top {
@@ -65,26 +92,41 @@ a {
   float: left;
 }
 
-.navbar h5 {
-  padding: 5px;
-  margin: 0;
+.navbar .local-links {
+  /*margin: 10px auto 10px auto;*/
+  float: center;
+  text-align: center;
+  padding: 20px 15px 15px 15px;
 }
 
 .navbar .local-links a {
-  margin: 0 10px 0 10px;
+  margin: 0 5%;
+  font-weight: bold;
+  font-size: 1.25em;
 }
 
 .navbar p {
-  margin: auto;
+  margin: 10px auto;
   clear: left;
   padding: 5px;
+}
+
+.navbar .external-links {
+  display: inline;
+  margin: auto;
+  /*float: center;*/
+  padding-bottom: 30px;
+}
+
+#aboutme {
+  padding-top: 30px;
 }
 
 .navbar .external-links a img {
   height: 30px;
   width: 30px;
-  float: left;
-  margin: 5px 0px 5px 10px;
+  /*display: inline;*/
+  margin: auto;
 }
 
 .content-right {
@@ -101,12 +143,13 @@ a {
 .footer {
   /*margin-left: 35%;*/
   clear: both;
-  margin-top: 60px;
+  margin-top: 10px;
   border-radius: 10px;
   border-top: 5px solid #8b9db8;
   border-bottom: 5px solid #8b9db8;
   text-align: center;
   background-color: #ffffff;
+  margin-bottom: 10px;
 }
 
 .jumbotron img {
@@ -133,7 +176,10 @@ a {
 
 .posts {
   clear: both;
-  padding: 5px 5px 30px 5px;
+  padding: 0px 5px 30px 5px;
+  border-top: 1px solid #bbbbbb;
+  margin: 5px 0;
+  display: inline-block;
 }
 
 .jumbotron p, .jumbotron h3, .jumbotron sub {
@@ -189,6 +235,16 @@ a {
   font-size: .85em;
 }
 
+#resume {
+  width: 90%;
+}
+
+#blog-revamp-post img {
+  width: 30%;
+  /*float: left;*/
+  display: inline;
+  padding-left: 2%;
+}
 
 
 
