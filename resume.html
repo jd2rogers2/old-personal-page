@@ -1,33 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <title>jd2rogers2.github.io - home</title>
+  <title>James D. Rogers Blog</title>
   <meta charset="UTF-8" name="viewport">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
   <link rel="stylesheet" type="text/css" href="./index.css">
-
-  <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
-  <script type="text/javascript" src ="index.js"></script>
 </head>
-
 <body>
-  <div id="body">
+  <div class="navbar navbar-left">
+    <div class="local-links">
+      <a href="./index.html">Blog</a>  <a href="./resume.html">Resumé</a>
+    </div>
 
-    <header>
-      <div id="profile">
-        <img src="./images/profile.jpg">
-      </div> <!--profile-->
-      <nav>
-          <a href="./index.html" id="blog">Blog</a>
-          <a href="./resume.html">Resumé</a>
-      </nav>
-    </header>
+    <div class="external-links">
+      <a href="https://github.com/jd2rogers2" target="_blank"><img src="./images/github.png" alt="github link"></a>
+      <a href="https://twitter.com/sregorsemaj" target="_blank"><img src="./images/twitter.jpeg" alt="twitter link"></a>
+      <a href="https://www.linkedin.com/in/jamesrogers3
+      " target="_blank"><img src="./images/linkedin.png" alt="linkedin link"></a>
+      <a href="https://www.facebook.com/roger.d.jameson" target="_blank"><img src="./images/facebook.png" alt="facebook link"></a>
+    </div>
+
+    <div id="aboutme">
+      <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
+
+      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
+    </div>
+    <sub>as of 14 Nov '16</sub>
+  </div>
+
+  <div class="content-right">
 
     <img id="resume" src="./images/resume.jpg">
 
-    <footer> © 2016 James Rogers</footer>
+    <div class="footer">
+      <p>© 2016 James D. Rogers</p>
+    </div>
+  </div>
 
-  </div> <!--body-->
+  <script type="text/javascript" src="./jquery-3.1.0.min.js"></script>
+  <script type="text/javascript" src ="./index.js"></script>
 </body>
 </html>
