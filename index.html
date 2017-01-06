@@ -22,9 +22,9 @@
     <div id="aboutme">
       <p>Hi, my name is James, welcome to my blog. Here you'll find posts on an array of different subjects including tech/webdev, volunteering, travel, business/finance, guitar/music, politics, soccer, art, cooking, family, reading, and beer.</p>
 
-      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. I'm enrolled in Flatiron School's online Learn Verified program in hopes of becoming a full stack web developer. </p>
+      <p>I am currently in my mid-twenties and living with my girlfriend in the Boston area. Recently having graduated from the Flatiron School's online Learn Verified program, I am a contract online TA at the school and have hopes of becoming a full time developer. </p>
     </div>
-    <sub>as of 4 December 2016</sub>
+    <sub>as of 5 January 2017</sub>
   </div>
 
   <div class="content-right">
@@ -32,9 +32,29 @@
     <h5 id="name">James D. Rogers</h5>
 
     <div class="jumbotron">
-      <img src="./images/blog-before-bootstrap.png" alt="my old website">
-      <h3>My journey to bootstrap and back again</h3>
+      <img src="./images/low-rider.jpg" alt="low rider car">
+      <h3>Gettin' Low with Big O</h3>
 
+      <p>Hello readers (pff, as if I have any) sorry that it's been a while with the holidays and what not. I think we'll kind of ease back into this writing thing with somewhat of a standard programmer's post on explaining Big O notation to a non-programmer. Afterwards however, I'll try to apply it to a common algorithm I encountered recently. </p>
+
+      <div class="hidden-content">
+        <p>So... hello non-programmer. How are you? What's that, you heard about this thing called "Big O notation" and want someone to explain it to you? Sure, very simply put, it is a way of measuring how a program scales. So as the input get's larger, how does the workload increase? We can't use time because these things run differently in different environments, so we use a comparison to the size of the input. An example, if we input a list of 10 items and the function only has to iterate over each item once we would get O(n), verbalized as 'O of n'. </p>
+
+        <p>Then, to explain 0(n^2), this is where we would iterate over an array, then nested in that iteration block we would iterate over the array again, to compare the elements to the others. </p>
+
+        <p>An example here is if we have an array of a stock's previous prices arranged in chronological order. We want to find the highest possible profit if we have to buy and then sell in that period. (we'll exclude edge cases, also the below is not the most effecient way of solving, though admittedly it was my first solution)</p>
+
+        <script src="https://gist.github.com/jd2rogers2/27e77eff1e44cf37d28e3b51698e3b4f.js"></script>
+
+        <p>Well that wasn't so bad, I should write more of these. Hope you enjoyed it non-existant reader.</p>
+      </div>
+      <sub>posted 5 January 2017</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>My journey to bootstrap and back again</h3>
+      <img src="./images/blog-before-bootstrap.png" alt="my old website" class="left">
       <p>In this post I have be chronicled my attempt to revamp my basic static website to now utilize bootstrap. I also did a little research on web design and layout. To cut right to the chase, I didn't end up using bootstrap, just Jquery, but it was a valuable exercise to learn how bootstrap works especially the row, 12 column system. </p>
 
       <div class="hidden-content" id="blog-revamp-post">
