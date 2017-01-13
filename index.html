@@ -32,9 +32,27 @@
     <h5 id="name">James D. Rogers</h5>
 
     <div class="jumbotron">
-      <img src="./images/low-rider.jpg" alt="low rider car">
-      <h3>Gettin' Low with Big O</h3>
+      <img src="./images/bueller.jpg" alt="ferris bueller's teacher">
+      <h3>Euler? Euler? Anyone?</h3>
 
+      <p>I was doing project Euler to practice for a technical interview, and was on question 3 which is 'find the largest prime factor of 600851475143'. I rather quickly devised a solution that I'm pretty sure of and seems to work on every number I've tested apart from the larger ones. 1st attempt shown below:</p>
+
+      <div class="hidden-content">
+        <script src="https://gist.github.com/jd2rogers2/ddfeb8870982a9a6a49919fdc0bb5f81.js"></script>
+
+        <p>This may work for small numbers but certainly wouldn't if I had to iterate over six hundred billion numbers, my program was freezing. I then devised that finding primes was not the right approach, if you iterate up from the bottom to find factors you skip every number between multiples; but how to do this in the best way. After reading a few articles and looking at a lot of different ways to solve, I settled on this as the both the easiest to code and understand logically. </p>
+
+        <script src="https://gist.github.com/jd2rogers2/32e94045b949ca63da5431424c7f3b56.js"></script>
+
+        <p>It did take a little while to wrap my head around the fact that: if you divide by 2, then you could skip over the factor that pairs if you divide by 3. What if that number is prime? But it always checks out, it never seems to be, with every instance I tried it on, so it must follow some sort of rule that I really don't know how to express. </p>
+      </div>
+      <sub>posted 12 January 2017</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>Gettin' Low with Big O</h3>
+      <img src="./images/low-rider.jpg" alt="low rider car" class="right">
       <p>Hello readers (pff, as if I have any) sorry that it's been a while with the holidays and what not. I think we'll kind of ease back into this writing thing with somewhat of a standard programmer's post on explaining Big O notation to a non-programmer. Afterwards however, I'll try to apply it to a common algorithm I encountered recently. </p>
 
       <div class="hidden-content">
