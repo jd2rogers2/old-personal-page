@@ -32,20 +32,42 @@
     <h5 id="name">James D. Rogers</h5>
 
     <div class="jumbotron">
-      <img src="./images/bueller.jpg" alt="ferris bueller's teacher">
-      <h3>Euler? Euler? Anyone?</h3>
+      <img src="./images/fotc-robots.jpg" alt="the flight of the conchords from their music video 'robots'">
+      <h3>Binary (search tree) solo</h3>
 
-      <p>I was doing project Euler to practice for a technical interview, and was on question 3 which is 'find the largest prime factor of 600851475143'. I rather quickly devised a solution that I'm pretty sure of and seems to work on every number I've tested apart from the larger ones. 1st attempt shown below:</p>
+      <p>I've recently learned about binary search trees and immediately saw how searching in this data structure is much faster than in an array. Searching a hash or an array, worst case scenario, you find the element in 0(n). There's no comparison with a BST at O(log(n)); to search you check one of two child nodes therefore immediately cancelling out half of your data, and continue down the line from there, until you find your object's ID.</p>
 
       <div class="hidden-content">
-        <script src="https://gist.github.com/jd2rogers2/ddfeb8870982a9a6a49919fdc0bb5f81.js"></script>
+        <p>My next steps were to find some applications and typical operations for them. We'll start with the basics, the search function that intrigued me so much.</p>
 
-        <p>This may work for small numbers but certainly wouldn't if I had to iterate over six hundred billion numbers, my program was freezing. I then devised that finding primes was not the right approach, if you iterate up from the bottom to find factors you skip every number between multiples; but how to do this in the best way. After reading a few articles and looking at a lot of different ways to solve, I settled on this as the both the easiest to code and understand logically. </p>
+        <script src="https://gist.github.com/jd2rogers2/09d3ea0a4f87fa77aa1bf386c57b3179.js"></script>
+
+        <p>Inserting into the tree is another common operation. </p>
+
+        <script src="https://gist.github.com/jd2rogers2/a7dad5f71e2e3908b840d95999e1a01a.js"></script>
+
+        <p>Lastly, what if we want to know if this tree is symmetrical. Symmetry is defined as 'exactly similar parts facing each other or around an axis'. A very easy way to check for symmetry is to invert one side and check if they are equal (regarding the directions of the child nodes, not the data ID point's values).</p>
+
+        <script src="https://gist.github.com/jd2rogers2/20577d100afd5075422ec37b6442124b.js"></script>
+      </div> <!-- hidden-content -->
+      <sub>posted 23 January 2017</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>Euler? Euler? Anyone?</h3>
+      <img src="./images/bueller.jpg" alt="ferris bueller's teacher" class="left">
+      <p>I was doing Project Euler to practice for a technical interview, and was on question 3 which is 'find the largest prime factor of 600851475143'. I rather quickly devised a solution that I'm pretty sure of and seems to work on every number I've tested apart from the larger ones. 1st attempt shown below:</p>
+
+      <div class="hidden-content">
+        <script class="gist" src="https://gist.github.com/jd2rogers2/ddfeb8870982a9a6a49919fdc0bb5f81.js"></script>
+
+        <p>This may work for small numbers but certainly wouldn't as I had to iterate over six hundred billion numbers, my program was freezing. I then devised that finding primes was not the right approach, if you iterate up from the bottom to find factors you skip every number between multiples; but how to do this in the best way. After reading a few articles and looking at a lot of different ways to solve, I settled on this as the both the easiest to code and understand logically. </p>
 
         <script src="https://gist.github.com/jd2rogers2/32e94045b949ca63da5431424c7f3b56.js"></script>
 
-        <p>It did take a little while to wrap my head around the fact that: if you divide by 2, then you could skip over the factor that pairs if you divide by 3. What if that number is prime? But it always checks out, it never seems to be, with every instance I tried it on, so it must follow some sort of rule that I really don't know how to express. </p>
-      </div>
+        <p>It did take a little while to wrap my head around the fact that, when dividing by 2, skipping over the factor that corresponds with 3, does not effect the outcome. What if that number is prime?</p>
+      </div> <!-- hidden-content -->
       <sub>posted 12 January 2017</sub><br>
       <button class="showPost">more/less</button>
     </div>
