@@ -10,7 +10,8 @@ code edits
 post ideas
 ------------------------
 all my friends do is talk about themselves: self-referencing associations
-merge sort
 underscore.js
+
+
 
 

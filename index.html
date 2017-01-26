@@ -31,10 +31,52 @@
     <img src="./images/profile.jpg" id="profile" alt="picture of me">
     <h5 id="name">James D. Rogers</h5>
 
-    <div class="jumbotron">
-      <img src="./images/fotc-robots.jpg" alt="the flight of the conchords from their music video 'robots'">
-      <h3>Binary (search tree) solo</h3>
+    <div class="jumbotron mergeSort">
+      <img src="./images/gryffindor.jpg" alt="harry potter with sorting hat">
+      <h3>Merge sort me into Gryffindor</h3>
 
+      <p>Merge sort has become the popular kid of sorting algorithms, the Cedric Diggory if you will. All of the resources I'm using say that interviewers love to ask about it. So I guess it's time Harry made friends with Cedric.</p>
+
+      <div class="hidden-content">
+        <p>The algorithm uses the logic that an array of one item is already sorted, and that it is much easier to combine and sort two sorted arrays than it is to sort one unsorted array in its place. To do this we first split the array and recursively split until we have just one element. Then we proceed to join by comparing the elements at the 0 index. </p>
+
+        <p>A note before the code and following walk through, this algorithm performs at O(n log(n)) and uses O(n) space. </p>
+
+        <script src="https://gist.github.com/jd2rogers2/67ddc17db1c2e9645f354f63b3adb9c4.js"></script>
+        <table>
+          <tr>
+            <th>line</th>
+            <th>action</th>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>do not split arrays of length 1</td>
+          </tr>
+          <tr>
+            <td>4-6</td>
+            <td>find a mid point and split our array</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>recursively run mergeSort until arrays of 1 element, then merge all arrays</td>
+          </tr>
+          <tr>
+            <td>13-15</td>
+            <td>while both arrays have elements, find the smaller of the two first indeces and push it into sorted</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>put arrays together in order</td>
+          </tr>
+        </table>
+      </div> <!-- hidden-content -->
+      <sub>posted 26 January 2017</sub><br>
+      <button class="showPost">more/less</button>
+    </div>
+
+    <div class="posts">
+      <h3>Binary (search tree) solo</h3>
+      <img src="./images/fotc-robots.jpg" alt="the flight of the conchords from their music video 'robots'" class="right">
       <p>I've recently learned about binary search trees and immediately saw how searching in this data structure is much faster than in an array. Searching a hash or an array, worst case scenario, you find the element in 0(n). There's no comparison with a BST at O(log(n)); to search you check one of two child nodes therefore immediately cancelling out half of your data, and continue down the line from there, until you find your object's ID.</p>
 
       <div class="hidden-content">

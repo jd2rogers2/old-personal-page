@@ -89,7 +89,6 @@ a {
   margin: 5px;
   height: 100px;
   width: auto;
-  float: left;
 }
 
 .navbar .local-links {
@@ -255,3 +254,6 @@ sub {
   color: grey;
 }
 
+.navbar sub, .navbar a {
+  padding-left: 5px;
+}
